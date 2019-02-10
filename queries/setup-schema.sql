@@ -1,6 +1,26 @@
 CREATE database rmkcet_db;
 USE rmkcet_db;
 
+CREATE table users (
+	user_id integer auto_increment,
+    name varchar(40) not null,
+    email varchar(40) unique not null,
+    password varchar(40) not null,
+    fk_user_types_user_type_id integer not null,
+    PRIMARY KEY (user_id),
+    FOREIGN KEY (fk_user_types_user_type_id) references user_types(user_type_id)
+);
+
+insert into users(name,email,password,fk_user_types_user_type_id) values("Joel Kingsley","joelkingsley.r@gmail.com","qwertyjk",1);
+
+insert into user_types(name) values("Administrator");
+
+CREATE table user_types (
+	user_type_id integer auto_increment,
+    name varchar(40) unique not null,
+    PRIMARY KEY (user_type_id)
+);
+
 CREATE table batches (
 	batch_id integer auto_increment,
     batch_start_year integer not null unique,
@@ -76,3 +96,4 @@ CREATE table exam_results (
 );
 
 show tables;
+desc tables;
