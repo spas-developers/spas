@@ -1,0 +1,46 @@
+.search{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:start;
+}
+
+form.search input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 30%;
+    background: #f1f1f1;
+}
+
+form.search button {
+    float: left;
+    width: 9%;
+    padding: 12px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+.details {
+    display:flex;
+    flex-direction:row;
+    
+}  
+
+.details > div {
+    padding: 30px;
+    margin-right: 50px;
+    font-size :20px;
+}
+
+th,td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+table{
+    width:100%
+
+}
