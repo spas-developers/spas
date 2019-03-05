@@ -24,5 +24,13 @@ public class DBConstants {
 	
 	public static final String COL_BATCHES_BATCH_ID = "batch_id";
 	public static final String COL_BATCHES_BATCH_START_YEAR = "batch_start_year";
+	public static final Object TABLE_STUDENTS = "students";
+	public static final Object COL_STUDENTS_STUDENT_ID = "student_id";
+	public static final Object COL_STUDENTS_REGISTER_NUMBER = "register_number";
+	public static final Object COL_STUDENTS_STUDENT_NAME = "student_name";
+	public static final Object COL_STUDENTS_GENDER = "gender";
+	public static final Object COL_STUDENTS_IS_HOSTELER = "is_hosteler";
+	public static final Object TABLE_BATCHES = "batches";
+	public static final Object COL_BATCH_START_YEAR = "batch_start_year";
 	
 }
