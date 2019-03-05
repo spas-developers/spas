@@ -9,5 +9,7 @@ public class DBQueries {
 	public static final String GET_ALL_BATCHES = "SELECT batch_id, batch_start_year FROM batches";
 	public static final String GET_ALL_SEMESTERS = "SELECT semesters.semester_id, semesters.semester_number, batches.batch_id, batches.batch_start_year, departments.department_id, departments.department_name, departments.abbreviation FROM semesters LEFT JOIN batches on (semesters.fk_batches_batch_id = batches.batch_id) LEFT JOIN departments on (semesters.fk_departments_department_id = departments.department_id)";
 	public static final String GET_ALL_STUDENTS = "SELECT students.student_id, students.register_number, students.student_name, students.gender, students.is_hosteler, batches.batch_id, batches.batch_start_year, departments.department_id, departments.department_name, departments.abbreviation FROM students LEFT JOIN batches ON (students.fk_batches_batch_id = batches.batch_id) LEFT JOIN departments ON (students.fk_departments_department_id = departments.department_id)"; 
+	public static final String GET_ALL_STUDENTS = "SELECT students.student_id, students,register_number, students.students_name, students.gender, students.is_hosteler, batches.batch_id, batches.batch_start_year, departments.department_name, departments.abbreviation FROM students LEFT JOIN batches ON (batches.fk_batches_batch_id = batches.batch_id) LEFT JOIN departments ON (users.fk_departments_department_id = departments.department_id)";
+	public static final String GET_ALL_EXAM_TYPES = "SELECT exam_type_id, exam_type_name, abbrevation FROM examTypes"; 
 
 }
