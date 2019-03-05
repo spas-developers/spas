@@ -27,4 +27,9 @@ public class DBConstants {
 	public static final String COL_SUBJECTS_SUBJECT_CODE = "subject_code";
 	public static final String COL_SUBJECTS_SUBJECT_NAME = "subject_name";
 	public static final String COL_SUBJECTS_CREDIT = "credit";
+
+	public static final String TABLE_BATCHES = "batches";
+	public static final String COL_BATCHES_BATCH_ID = "batch_id";
+	public static final String COL_BATCHES_BATCH_START_YEAR = "batch_start_year";
+	
 }

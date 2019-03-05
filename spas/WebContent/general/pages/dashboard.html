@@ -1,0 +1,37 @@
+<html>
+<body>
+
+<h1>Dashboard</h1>
+
+<div id="curve_chart" style="width: 900px; height: 500px"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Test', 'Second year','Third year','Final year'],
+  ['UT-1', 90, 80 , 90],
+  ['IA-1', 70, 60 ,80],
+  ['Ut-2', 75, 65 ,70],
+  ['IA-2', 70, 70 ,70],
+  ['Model', 80, 75 ,75],
+  ['Final Exam',70 ,75 ,80]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Pass Percentage', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  chart.draw(data, options);
+}
+</script>
+
+</body>
+</html>
