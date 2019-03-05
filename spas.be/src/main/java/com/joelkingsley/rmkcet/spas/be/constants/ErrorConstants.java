@@ -17,4 +17,5 @@ public class ErrorConstants {
 	public static final String STUDENTS_NOT_FOUND = "No Students to Fetch";
 	public static final String EXAM_TYPES_NOT_FOUND = "No Exam Types to Fetch";
 	public static final String EXAM_RESULTS_NOT_FOUND = "No Exam Results to Fetch";
+	public static final String EXAMS_NOT_FOUND = "No Exams to Fetch";
 }
