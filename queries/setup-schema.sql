@@ -6,12 +6,16 @@ CREATE table users (
     name varchar(40) not null,
     email varchar(40) unique not null,
     password varchar(40) not null,
+    fk_departments_department_id integer not null,
     fk_user_types_user_type_id integer not null,
     PRIMARY KEY (user_id),
+    FOREIGN KEY (fk_departments_department_id) references departments(department_id),
     FOREIGN KEY (fk_user_types_user_type_id) references user_types(user_type_id)
 );
 
-insert into users(name,email,password,fk_user_types_user_type_id) values("Joel Kingsley","joelkingsley.r@gmail.com","qwertyjk",1);
+drop table users;
+
+insert into users(name,email,password,fk_departments_department_id,fk_user_types_user_type_id) values("Joel Kingsley","joelkingsley.r@gmail.com","qwertyjk",1,1);
 
 insert into user_types(name) values("Administrator");
 
@@ -33,6 +37,8 @@ CREATE table departments (
     abbreviation varchar(10) not null unique,
     PRIMARY KEY (department_id)
 );
+
+insert into departments(department_name,abbreviation) values("Computer Science and Engineering", "CSE");
 
 CREATE table exam_types (
 	exam_type_id integer auto_increment,
