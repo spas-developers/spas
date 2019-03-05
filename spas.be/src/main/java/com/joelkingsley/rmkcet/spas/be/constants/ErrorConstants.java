@@ -11,4 +11,5 @@ public class ErrorConstants {
 	
 	public static final String DEPARTMENTS_NOT_FOUND = "No Departments to Fetch";
 	public static final String USER_TYPES_NOT_FOUND = "No User Types to Fetch";
+	public static final String SUBJECTS_NOT_FOUND = "No Subjects to Fetch";
 }

@@ -21,4 +21,10 @@ public class DBConstants {
 	public static final String COL_USERS_PASSWORD = "password";
 	public static final String COL_USERS_DEPARTMENT_ID = "fk_departments_department_id";
 	public static final String COL_USERS_USER_TYPE_ID = "fk_user_types_user_type_id";
+	
+	public static final String TABLE_SUBJECTS = "subjects";
+	public static final String COL_SUBJECTS_SUBJECT_ID = "subject_id";
+	public static final String COL_SUBJECTS_SUBJECT_CODE = "subject_code";
+	public static final String COL_SUBJECTS_SUBJECT_NAME = "subject_name";
+	public static final String COL_SUBJECTS_CREDIT = "credit";
 }
