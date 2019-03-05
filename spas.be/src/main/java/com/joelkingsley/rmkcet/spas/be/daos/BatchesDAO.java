@@ -31,7 +31,7 @@ public class BatchesDAO {
 			return batches;
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
-			throw new AppError(ErrorConstants.BATCHES_NOT_FOUND);
+			throw new AppError(ErrorConstants.SERVER_ERROR);
 		}
 	}
 

@@ -32,7 +32,7 @@ public class UserTypesDAO {
 			return userTypes;
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
-			throw new AppError(ErrorConstants.USER_TYPES_NOT_FOUND);
+			throw new AppError(ErrorConstants.SERVER_ERROR);
 		}
 	}
 	

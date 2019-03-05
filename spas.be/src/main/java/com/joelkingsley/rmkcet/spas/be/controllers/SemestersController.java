@@ -7,29 +7,32 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.joelkingsley.rmkcet.spas.be.beans.Batch;
+import com.joelkingsley.rmkcet.spas.be.beans.Semester;
 import com.joelkingsley.rmkcet.spas.be.constants.ErrorConstants;
-import com.joelkingsley.rmkcet.spas.be.delegates.BatchesDelegate;
+import com.joelkingsley.rmkcet.spas.be.delegates.SemestersDelegate;
 import com.joelkingsley.rmkcet.spas.be.utils.AppError;
 
 @RestController
-public class BatchesController {
-BatchesDelegate batchesDelegate;
+public class SemestersController {
+
+SemestersDelegate semestersDelegate;
 	
-	public BatchesController() {
+	public SemestersController() {
 		super();
-		this.batchesDelegate = new BatchesDelegate();
+		this.semestersDelegate = new SemestersDelegate();
 	}
-	
-	@GetMapping("/batches")
-	ResponseEntity<?> getAllBatches() {
+
+
+
+	@GetMapping("/semesters")
+	ResponseEntity<?> getAllSemesters() {
 		try {
-			ArrayList<Batch> batches = batchesDelegate.getAllBatches();
-			if(batches == null) {
-				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.BATCHES_NOT_FOUND, HttpStatus.NOT_FOUND);
+			ArrayList<Semester> semesters = semestersDelegate.getAllSemesters();
+			if(semesters.size() == 0) {
+				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.SEMESTERS_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<Batch>> responseEntity = new ResponseEntity<ArrayList<Batch>>(batches, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<Semester>> responseEntity = new ResponseEntity<ArrayList<Semester>>(semesters, HttpStatus.FOUND);
 				return responseEntity;
 			}
 		} catch (AppError appError) {
@@ -38,6 +41,5 @@ BatchesDelegate batchesDelegate;
 			return responseEntity;
 		}
 	}
+	
 }
-
-

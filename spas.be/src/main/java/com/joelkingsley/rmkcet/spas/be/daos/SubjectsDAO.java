@@ -34,7 +34,7 @@ public class SubjectsDAO {
 			return subjects;
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
-			throw new AppError(ErrorConstants.SUBJECTS_NOT_FOUND);
+			throw new AppError(ErrorConstants.SERVER_ERROR);
 		}
 	}
 	

@@ -33,7 +33,7 @@ public class DepartmentsDAO {
 			return departments;
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
-			throw new AppError(ErrorConstants.DEPARTMENTS_NOT_FOUND);
+			throw new AppError(ErrorConstants.SERVER_ERROR);
 		}
 	}
 	

@@ -32,4 +32,8 @@ public class DBConstants {
 	public static final String COL_BATCHES_BATCH_ID = "batch_id";
 	public static final String COL_BATCHES_BATCH_START_YEAR = "batch_start_year";
 	
+	public static final Object TABLE_SEMESTERS = "semesters";
+	public static final String COL_SEMESTERS_SEMESTER_ID = "semester_id";
+	public static final String COL_SEMESTERS_SEMESTER_NUMBER = "semester_number";
+	
 }
