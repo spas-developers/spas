@@ -7,32 +7,32 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.joelkingsley.rmkcet.spas.be.beans.Department;
+import com.joelkingsley.rmkcet.spas.be.beans.ExamResult;
 import com.joelkingsley.rmkcet.spas.be.constants.ErrorConstants;
-import com.joelkingsley.rmkcet.spas.be.delegates.DepartmentsDelegate;
+import com.joelkingsley.rmkcet.spas.be.delegates.ExamResultsDelegate;
 import com.joelkingsley.rmkcet.spas.be.utils.AppError;
 
 @RestController
-public class DepartmentsController {
+public class ExamResultsController {
+
+ExamResultsDelegate examResultsDelegate;
 	
-	DepartmentsDelegate departmentsDelegate;
-	
-	public DepartmentsController() {
+	public ExamResultsController() {
 		super();
-		this.departmentsDelegate = new DepartmentsDelegate();
+		this.examResultsDelegate = new ExamResultsDelegate();
 	}
 
 
 
-	@GetMapping("/departments")
-	ResponseEntity<?> getAllDepartments() {
+	@GetMapping("/examResults")
+	ResponseEntity<?> getAllExamResults() {
 		try {
-			ArrayList<Department> departments = departmentsDelegate.getAllDepartments();
-			if(departments.size() == 0) {
-				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.DEPARTMENTS_NOT_FOUND, HttpStatus.NOT_FOUND);
+			ArrayList<ExamResult> examResults = examResultsDelegate.getAllExamResults();
+			if(examResults.size() == 0) {
+				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.EXAM_RESULTS_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<Department>> responseEntity = new ResponseEntity<ArrayList<Department>>(departments, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<ExamResult>> responseEntity = new ResponseEntity<ArrayList<ExamResult>>(examResults, HttpStatus.FOUND);
 				return responseEntity;
 			}
 		} catch (AppError appError) {
@@ -41,4 +41,5 @@ public class DepartmentsController {
 			return responseEntity;
 		}
 	}
+	
 }

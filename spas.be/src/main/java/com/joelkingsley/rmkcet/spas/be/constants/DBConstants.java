@@ -38,17 +38,19 @@ public class DBConstants {
 	public static final Object COL_STUDENTS_STUDENT_NAME = "student_name";
 	public static final Object COL_STUDENTS_GENDER = "gender";
 	public static final Object COL_STUDENTS_IS_HOSTELER = "is_hosteler";
-<<<<<<< HEAD
 	
 	public static final Object TABLE_SEMESTERS = "semesters";
 	public static final String COL_SEMESTERS_SEMESTER_ID = "semester_id";
 	public static final String COL_SEMESTERS_SEMESTER_NUMBER = "semester_number";
-=======
-	public static final Object TABLE_BATCHES = "batches";
-	public static final Object COL_BATCH_START_YEAR = "batch_start_year";
+	
+	public static final Object TABLE_EXAM_TYPE = "exam_types";
 	public static final String COL_EXAM_TYPES_EXAM_TYPE_ID = "exam_type_id";
 	public static final String COL_EXAM_TYPES_EXAM_TYPE_NAME = "exam_type_name";
 	public static final String COL_EXAM_TYPES_ABBREVIATION = "abbrevation";
->>>>>>> 60e69563fa387c6ac82c9f1694da671f5b25ff27
+	
+	public static final Object TABLE_EXAM_RESULT = "exam_results";
+	public static final Object COL_EXAM_RESULTS_EXAM_RESULT_ID = "exam_result_id";
+	public static final Object COL_EXAM_RESULTS_MARKS = "marks";
+	public static final Object COL_EXAM_RESULTS_GRADE = "grade";
 	
 }
