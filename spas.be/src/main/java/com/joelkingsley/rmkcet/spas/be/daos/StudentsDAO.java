@@ -19,7 +19,7 @@ import com.joelkingsley.rmkcet.spas.be.utils.DBUtils;
 public class StudentsDAO {
 	public ArrayList<Student> getAllStudents() throws AppError {
 		Connection connection = DBUtils.getConnection();
-		ArrayList<Student> departments = new ArrayList<Student>();
+		ArrayList<Student> students = new ArrayList<Student>();
 		
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.GET_ALL_STUDENTS);
@@ -47,9 +47,9 @@ public class StudentsDAO {
 						department);
 				
 				
-				departments.add(student);
+				students.add(student);
 			}
-			return departments;
+			return students;
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 			throw new AppError(ErrorConstants.SERVER_ERROR);
