@@ -32,5 +32,8 @@ public class DBConstants {
 	public static final Object COL_STUDENTS_IS_HOSTELER = "is_hosteler";
 	public static final Object TABLE_BATCHES = "batches";
 	public static final Object COL_BATCH_START_YEAR = "batch_start_year";
+	public static final String COL_EXAM_TYPES_EXAM_TYPE_ID = "exam_type_id";
+	public static final String COL_EXAM_TYPES_EXAM_TYPE_NAME = "exam_type_name";
+	public static final String COL_EXAM_TYPES_ABBREVIATION = "abbrevation";
 	
 }

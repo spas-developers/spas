@@ -13,4 +13,5 @@ public class ErrorConstants {
 	public static final String USER_TYPES_NOT_FOUND = "No User Types to Fetch";
 	public static final String BATCHES_NOT_FOUND = "No Batches to Fetch";
 	public static final String STUDENTS_NOT_FOUND = "No Students Found";
+	public static final String EXAM_TYPES_NOT_FOUND = "No ExamTypes Found";
 }
