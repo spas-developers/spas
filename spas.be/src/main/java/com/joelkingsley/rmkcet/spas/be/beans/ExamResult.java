@@ -6,15 +6,15 @@ public class ExamResult {
 	int marks;
 	String grade;
 	Exam exam;
-	ExamType examType;
+	Student student;
 	
-	public ExamResult(int examResultID, int marks, String grade, Exam exam, ExamType examType) {
+	public ExamResult(int examResultID, int marks, String grade, Exam exam, Student student) {
 		super();
 		this.examResultID = examResultID;
 		this.marks = marks;
 		this.grade = grade;
 		this.exam = exam;
-		this.examType = examType;
+		this.student = student;
 	}
 
 	public int getExamResultID() {
@@ -49,20 +49,18 @@ public class ExamResult {
 		this.exam = exam;
 	}
 
-	public ExamType getExamType() {
-		return examType;
+	public Student getStudent() {
+		return student;
 	}
 
-	public void setExamType(ExamType examType) {
-		this.examType = examType;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 	@Override
 	public String toString() {
-		return "ExamResult [examResultID=" + examResultID + ", marks=" + marks + ", grade=" + grade + ", examType="
-				+ examType + "]";
+		return "ExamResult [examResultID=" + examResultID + ", marks=" + marks + ", grade=" + grade + ", exam=" + exam
+				+ ", student=" + student + "]";
 	}
-	
-	
-	
+		
 }

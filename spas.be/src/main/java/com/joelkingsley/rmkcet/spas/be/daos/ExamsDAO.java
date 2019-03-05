@@ -55,7 +55,7 @@ public class ExamsDAO {
 						department);
 				
 				Exam exam = new Exam(
-						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_ID)),
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_EXAMS, DBConstants.COL_EXAMS_EXAM_ID)),
 						examType,
 						subject,
 						semester);

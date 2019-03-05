@@ -32,7 +32,7 @@ public class ExamTypesDAO {
 			return examTypes;
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
-			throw new AppError(ErrorConstants.EXAM_TYPES_NOT_FOUND);
+			throw new AppError(ErrorConstants.EXAM_TYPES_NOT_FOUND, sqlException);
 		}
 	}
 

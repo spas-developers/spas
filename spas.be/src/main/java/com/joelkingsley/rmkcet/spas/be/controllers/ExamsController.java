@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.joelkingsley.rmkcet.spas.be.beans.Exam;
 import com.joelkingsley.rmkcet.spas.be.constants.ErrorConstants;
 import com.joelkingsley.rmkcet.spas.be.delegates.ExamsDelegate;
 import com.joelkingsley.rmkcet.spas.be.utils.AppError;
 
+@RestController
 public class ExamsController {
 	
 ExamsDelegate examsDelegate;

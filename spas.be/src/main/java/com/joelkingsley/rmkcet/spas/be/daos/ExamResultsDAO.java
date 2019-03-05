@@ -9,9 +9,12 @@ import java.util.ArrayList;
 
 import com.joelkingsley.rmkcet.spas.be.beans.Batch;
 import com.joelkingsley.rmkcet.spas.be.beans.Department;
+import com.joelkingsley.rmkcet.spas.be.beans.Exam;
 import com.joelkingsley.rmkcet.spas.be.beans.ExamResult;
 import com.joelkingsley.rmkcet.spas.be.beans.ExamType;
+import com.joelkingsley.rmkcet.spas.be.beans.Semester;
 import com.joelkingsley.rmkcet.spas.be.beans.Student;
+import com.joelkingsley.rmkcet.spas.be.beans.Subject;
 import com.joelkingsley.rmkcet.spas.be.constants.DBConstants;
 import com.joelkingsley.rmkcet.spas.be.constants.DBQueries;
 import com.joelkingsley.rmkcet.spas.be.constants.ErrorConstants;
@@ -29,21 +32,55 @@ public class ExamResultsDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				
-				Exam exam = new Exam(
+				ExamType examType = new ExamType(
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_EXAM_TYPES, DBConstants.COL_EXAM_TYPES_EXAM_TYPE_ID)),
+						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_EXAM_TYPES, DBConstants.COL_EXAM_TYPES_EXAM_TYPE_NAME)),
+						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_EXAM_TYPES, DBConstants.COL_EXAM_TYPES_ABBREVIATION)));
+						
+				Subject subject = new Subject(
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_SUBJECTS, DBConstants.COL_SUBJECTS_SUBJECT_ID)),
+						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_SUBJECTS, DBConstants.COL_SUBJECTS_SUBJECT_CODE)),
+						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_SUBJECTS, DBConstants.COL_SUBJECTS_SUBJECT_NAME)),
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_SUBJECTS, DBConstants.COL_SUBJECTS_CREDIT)));
+				
+				Batch batch = new Batch(
 						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_BATCHES, DBConstants.COL_BATCHES_BATCH_ID)),
 						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_BATCHES, DBConstants.COL_BATCHES_BATCH_START_YEAR)));
-						
-				ExamType examType = new ExamType(
-						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_EXAM_TYPE, DBConstants.COL_EXAM_TYPES_EXAM_TYPE_ID)),
-						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_EXAM_TYPE, DBConstants.COL_EXAM_TYPES_EXAM_TYPE_NAME)),
-						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_EXAM_TYPE, DBConstants.COL_EXAM_TYPES_ABBREVIATION)));
+				
+				Department department = new Department(
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_DEPARTMENTS, DBConstants.COL_DEPARTMENTS_DEPARTMENT_ID)),
+						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_DEPARTMENTS, DBConstants.COL_DEPARTMENTS_DEPARTMENT_NAME)),
+						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_DEPARTMENTS, DBConstants.COL_DEPARTMENTS_ABBREVIATION)));
+				
+				Semester semester = new Semester(
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_SEMESTERS, DBConstants.COL_SEMESTERS_SEMESTER_ID)),
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_SEMESTERS, DBConstants.COL_SEMESTERS_SEMESTER_NUMBER)),
+						batch,
+						department);
+				
+				Exam exam = new Exam(
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_EXAMS, DBConstants.COL_EXAMS_EXAM_ID)),
+						examType,
+						subject,
+						semester);
+				
+				boolean isHosteler = resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_STUDENTS,DBConstants.COL_STUDENTS_IS_HOSTELER)) != 0;
+				
+				Student student = new Student(
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_ID)),
+						BigInteger.valueOf(resultSet.getLong(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_ID))),
+						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_NAME)),
+						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_GENDER)),
+						isHosteler,
+						batch,
+						department);
 				
 				ExamResult examResult = new ExamResult(
-						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_EXAM_RESULT, DBConstants.COL_EXAM_RESULTS_EXAM_RESULT_ID)),
-						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_EXAM_RESULT, DBConstants.COL_EXAM_RESULTS_MARKS)),
-						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_EXAM_RESULT, DBConstants.COL_EXAM_RESULTS_GRADE)),
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_EXAM_RESULTS, DBConstants.COL_EXAM_RESULTS_EXAM_RESULT_ID)),
+						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_EXAM_RESULTS, DBConstants.COL_EXAM_RESULTS_MARKS)),
+						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_EXAM_RESULTS, DBConstants.COL_EXAM_RESULTS_GRADE)),
 						exam,
-						examType);
+						student);
 				
 				
 				examResults.add(examResult);

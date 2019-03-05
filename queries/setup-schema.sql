@@ -31,6 +31,8 @@ CREATE table batches (
     PRIMARY KEY (batch_id)
 );
 
+insert into batches(batch_start_year) values(2018);
+
 CREATE table departments (
 	department_id integer auto_increment,
     department_name varchar(40) not null unique,
@@ -47,6 +49,8 @@ CREATE table exam_types (
     PRIMARY KEY (exam_type_id)
 );
 
+insert into exam_types(exam_type_name, abbreviation) values("Final Examination", "FE");
+
 CREATE table subjects (
 	subject_id integer auto_increment,
     subject_code varchar(10) not null unique,
@@ -54,6 +58,8 @@ CREATE table subjects (
     credit integer not null,
     PRIMARY KEY (subject_id)
 );
+
+insert into subjects(subject_code,subject_name,credit) values ("MA6451", "Discrete Mathematics",4);
 
 CREATE table semesters (
 	semester_id integer auto_increment,
@@ -65,12 +71,14 @@ CREATE table semesters (
     FOREIGN KEY (fk_departments_department_id) references departments(department_id)
 );
 
+insert into semesters(semester_number,fk_batches_batch_id,fk_departments_department_id) values(1,1,1);
+
 CREATE table students (
 	student_id integer auto_increment,
     register_number bigint not null unique,
     student_name varchar(40) not null,
     gender varchar(1) not null,
-    isHosteler tinyint(4) not null,
+    is_hosteler tinyint(4) not null,
     fk_batches_batch_id integer not null,
     fk_departments_department_id integer not null,
     CHECK (gender="M" OR gender="F"),
@@ -78,6 +86,10 @@ CREATE table students (
     FOREIGN KEY (fk_batches_batch_id) references batches(batch_id),
     FOREIGN KEY (fk_departments_department_id) references departments(department_id)
 );
+
+insert into students(register_number,student_name,gender,is_hosteler,fk_batches_batch_id,fk_departments_department_id) values(111615104069,"Mohammed Ashik","M",0,1,1);
+
+drop table students;
 
 CREATE table exams (
 	exam_id integer auto_increment,
@@ -90,6 +102,8 @@ CREATE table exams (
     FOREIGN KEY (fk_semesters_semester_id) references semesters(semester_id)
 );
 
+insert into exams(fk_exam_types_exam_type_id,fk_subjects_subject_id,fk_semesters_semester_id) values(1,1,1);
+
 CREATE table exam_results (
 	exam_result_id integer auto_increment,
     fk_exams_exam_id integer not null,
@@ -100,6 +114,10 @@ CREATE table exam_results (
     FOREIGN KEY (fk_exams_exam_id) references exams(exam_id),
     FOREIGN KEY (fk_students_student_id) references students(student_id)
 );
+
+insert into exam_results(fk_exams_exam_id,fk_students_student_id,marks,grade) values(1,2,92,'S');
+
+drop table exam_results;
 
 show tables;
 desc tables;

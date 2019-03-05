@@ -13,6 +13,7 @@ public class Exam implements Serializable {
 	ExamType examType;
 	Subject subject;
 	Semester semester;
+
 	public Exam(int examID, ExamType examType, Subject subject, Semester semester) {
 		super();
 		this.examID = examID;
