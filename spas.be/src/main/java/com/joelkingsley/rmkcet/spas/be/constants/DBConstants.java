@@ -21,4 +21,8 @@ public class DBConstants {
 	public static final String COL_USERS_PASSWORD = "password";
 	public static final String COL_USERS_DEPARTMENT_ID = "fk_departments_department_id";
 	public static final String COL_USERS_USER_TYPE_ID = "fk_user_types_user_type_id";
+	
+	public static final String COL_BATCHES_BATCH_ID = "batch_id";
+	public static final String COL_BATCHES_BATCH_START_YEAR = "batch_start_year";
+	
 }
