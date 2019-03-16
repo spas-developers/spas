@@ -1,366 +1,57 @@
 <html>
+
 <head>
-<link rel="stylesheet" href="../css/student-search.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/spas.fe/general/css/student-search.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/spas.fe/general/css/header.css">
+  <link rel="stylesheet" href="/spas.fe/general/css/navbar.css">
+  <link rel="stylesheet" href="/spas.fe/general/css/dashboard.css">
+  <link rel="stylesheet" href="/spas.fe/general/css/fonts.css">
 
 </head>
+
 <body>
+  <header>
+    <div id="ztech-logo">
+      <img src="/spas.fe/assets/spas.png">
+    </div>
+  </header>
+  <section class="navbar">
+    <div class="open-sans-condensed bold">
+      <a href="" class="active menu-button">Dashboard</a>
+      <div class="dropdown-content dashboard-drop">
+        <a href="">Students</a>
+        <a href="">Exams</a>
+        <a href="">Exam Results</a>
+      </div>
+    </div>
+    <div class="open-sans-condensed bold">
+      <a href="" class="menu-button">Manage</a>
+      <div class="dropdown-content lt-drop">
+        <a href="">User Type</a>
+        <a href="">Batch</a>
+        <a href="">Department</a>
+        <a href="">Subject</a>
+        <a href="">Student</a>
+        <a href="">Semester</a>
+        <a href="">Exam Type</a>
+        <a href="">Exam</a>
+        <a href="">Exam Result</a>
+      </div>
+    </div>
+    <div class="open-sans-condensed bold">
+      <a href="" class="menu-button">Users</a>
+      <div class="dropdown-content gt-drop">
+        <a href="">Add User</a>
+        <a href="">Remove User</a>
+      </div>
+    </div>
+  </section>
   <form class="search" action="studentDetail" method="POST">
     <input type="text" placeholder="Search.." name="search-value">
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
-  <div class="details" >
-    <div>
-      <img src="../../assets/ashik.jpg"  width="100" height="100">
-    </div>
-    <div >
-      <div>Mohammed ashik</div>
-      <div>11615104069</div>
-      <div>2015-2019</div>
-      <div>CSE A</div>
-      <div>Day Scholar</div>
-    </div>
-  </div>
-  <h1>SEMESTER 1</h1>
-  <h2>Unit Test 1</h2>
-  <table >
-    <tr>
-      <th>Subject Code</th>
-      <th>Subject</th>
-      <th>Secured Marks</th>
-      <th>Max-Marks</th>
-      <th>Result</th>
-    </tr>
-    <tr>
-      <td>HS6151</td>
-      <td>English</td>
-      <td>71</td>
-      <td>100</td>
-      <td>P</td>
-    </tr>
-    <tr>
-      <td>MA6151</td>
-      <td>Mathematics I</td>
-      <td>85</td>
-      <td>100</td>
-      <td>P</td>
-    </tr>
-    <tr>
-      <td>PH6151</td>
-      <td>Physics I</td>
-      <td>65</td>
-      <td>100</td>
-      <td>P</td>
-    </tr>
-    <tr>
-      <td>CY6151</td>
-      <td>Chemistry I</td>
-      <td>76</td>
-      <td>100</td>
-      <td>P</td>
-    </tr>
-    <tr>
-    <tr>
-        <td>GE6151</td>
-        <td>Computer Programming</td>
-        <td>71</td>
-        <td>100</td>
-        <td>P</td>
-    </tr>
-    
-    <tr>
-        <td>GE6151</td>
-        <td>Engineering Grsphics</td>
-        <td>90</td>
-        <td>100</td>
-        <td>P</td>
-    </tr>
-  </table>
-  <h2>Internal Test 1</h2>
-  <table >
-      <tr>
-        <th>Subject Code</th>
-        <th>Subject</th>
-        <th>Secured Marks</th>
-        <th>Max-Marks</th>
-        <th>Result</th>
-      </tr>
-      <tr>
-        <td>HS6151</td>
-        <td>English</td>
-        <td>60</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>MA6151</td>
-        <td>Mathematics I</td>
-        <td>89</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>PH6151</td>
-        <td>Physics I</td>
-        <td>70</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>CY6151</td>
-        <td>Chemistry I</td>
-        <td>70</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-      <tr>
-        <td>GE6151</td>
-        <td>Computer Programming</td>
-        <td>60</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      
-      <tr>
-        <td>GE6151</td>
-        <td>Engineering Grsphics</td>
-        <td>80</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-  </table>
-  <h2>Unit Test 2</h2>
-  <table >
-      <tr>
-        <th>Subject Code</th>
-        <th>Subject</th>
-        <th>Secured Marks</th>
-        <th>Max-Marks</th>
-        <th>Result</th>
-      </tr>
-      <tr>
-        <td>HS6151</td>
-        <td>English</td>
-        <td>64</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>MA6151</td>
-        <td>Mathematics I</td>
-        <td>81</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>PH6151</td>
-        <td>Physics I</td>
-        <td>69</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>CY6151</td>
-        <td>Chemistry I</td>
-        <td>73</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-      <tr>
-        <td>GE6151</td>
-        <td>Computer Programming</td>
-        <td>65</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      
-      <tr>
-        <td>GE6151</td>
-        <td>Engineering Grsphics</td>
-        <td>85</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-  </table>
-  <h2>Internal Test 2</h2>
-  <table >
-      <tr>
-        <th>Subject Code</th>
-        <th>Subject</th>
-        <th>Secured Marks</th>
-        <th>Max-Marks</th>
-        <th>Result</th>
-      </tr>
-      <tr>
-        <td>HS6151</td>
-        <td>English</td>
-        <td>67</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>MA6151</td>
-        <td>Mathematics I</td>
-        <td>81</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>PH6151</td>
-        <td>Physics I</td>
-        <td>63</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>CY6151</td>
-        <td>Chemistry I</td>
-        <td>67</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-      <tr>
-        <td>GE6151</td>
-        <td>Computer Programming</td>
-        <td>65</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      
-      <tr>
-        <td>GE6151</td>
-        <td>Engineering Grsphics</td>
-        <td>90</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-  </table>
-  <h2>Model</h2>
-  <table >
-      <tr>
-        <th>Subject Code</th>
-        <th>Subject</th>
-        <th>Secured Marks</th>
-        <th>Max-Marks</th>
-        <th>Result</th>
-      </tr>
-      <tr>
-        <td>HS6151</td>
-        <td>English</td>
-        <td>65</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>MA6151</td>
-        <td>Mathematics I</td>
-        <td>87</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>PH6151</td>
-        <td>Physics I</td>
-        <td>78</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>CY6151</td>
-        <td>Chemistry I</td>
-        <td>75</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      <tr>
-      <tr>
-        <td>GE6151</td>
-        <td>Computer Programming</td>
-        <td>68</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-      
-      <tr>
-        <td>GE6151</td>
-        <td>Engineering Grsphics</td>
-        <td>85</td>
-        <td>100</td>
-        <td>P</td>
-      </tr>
-  </table>
-  <h2>Final Exam</h2>
-  <table >
-      <tr>
-        <th>Subject Code</th>
-        <th>Subject</th>
-        <th>Secured Grade</th>
-        <th>Result</th>
-      </tr>
-      <tr>
-        <td>HS6151</td>
-        <td>English</td>
-        <td>D</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>MA6151</td>
-        <td>Mathematics I</td>
-        <td>B</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>PH6151</td>
-        <td>Physics I</td>
-        <td>D</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>CY6151</td>
-        <td>Chemistry I</td>
-        <td>C</td>
-        <td>P</td>
-      </tr>
-      <tr>
-      <tr>
-        <td>GE6151</td>
-        <td>Computer Programming</td>
-        <td>D</td>
-        <td>P</td>
-      </tr>
-      
-      <tr>
-        <td>GE6151</td>
-        <td>Engineering Grsphics</td>
-        <td>S</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>GE6161</td>
-        <td>Computer Programming Lab</td>
-        <td>S</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>GE6162</td>
-        <td>Engineering Practices Lab</td>
-        <td>S</td>
-        <td>P</td>
-      </tr>
-      <tr>
-        <td>GE6163</td>
-        <td>Chemistry Lab</td>
-        <td>S</td>
-        <td>P</td>
-      </tr>
-
-
-      
-  </table>
-
 
 </body>
+
 </html>

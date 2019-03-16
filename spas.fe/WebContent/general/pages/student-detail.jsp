@@ -10,7 +10,7 @@
 
 <html>
 <head>
-<link rel="stylesheet" href="/spas.fe/css/student-search.css">
+<link rel="stylesheet" href="/spas.fe/general/css/student-search.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -20,13 +20,14 @@
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
   <div class="details" >
-    <%
-      ArrayList<ExamResult> examResults = (ArrayList<ExamResult>) request.getAttribute("examResults");
-     %>
+  
     <div>
       <img src="/spas.fe/assets/ashik.jpg"  width="100" height="100">
     </div>
-    <div >
+    <div>
+        <%
+        ArrayList<ExamResult> examResults = (ArrayList<ExamResult>) request.getAttribute("examResults");
+       %>
       <div><% out.println(examResults.get(0).getStudent().getStudentName()); %></div>
       <div><% out.println(examResults.get(0).getStudent().getRegisterNumber()); %></div>
       <div><% out.println(examResults.get(0).getStudent().getBatch().getBatchStartYear()); %>-<% out.println(examResults.get(0).getStudent().getBatch().getBatchStartYear() + 4); %></div>
