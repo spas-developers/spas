@@ -1,0 +1,75 @@
+/* * {
+    border: 1px solid pink;
+} */
+
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+#ztech-logo {
+    width: 300px;
+    height: auto;
+    align-self: center;
+    display: inline-block;
+    flex-grow: 2;
+}
+
+#ztech-logo img {
+    height: auto;
+}
+
+.drop {
+    align-self: center;
+    display: inline-block;
+}
+
+.drop-image {
+    border-radius: 30px;
+    margin-right: 10px;
+    justify-self: center;
+}
+
+.drop-image img {
+    width: 60px;
+    border-radius: 30px;
+    height: auto;
+}
+
+.drop-text {
+    margin-right: 10px;
+    justify-self: center;
+}
+
+.title {
+    display: inline-block;
+    padding: 0;
+    margin-left: 20px;
+    font-size: 100%;
+    color: white;
+}
+
+.drop-menu {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    background: rgb(2,0,36);
+    background: linear-gradient(133deg, rgba(2,0,36,1) 0%, rgba(104,98,110,1) 35%, rgba(0,0,0,1) 100%);
+    top: 100px;
+    right: 5px;
+}
+
+.logout {
+    background-color: transparent;
+    border-style: none;
+}

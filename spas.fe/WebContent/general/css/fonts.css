@@ -1,0 +1,15 @@
+.open-sans-condensed {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.italics {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+* {
+    /* border: 1px solid black; */
+}
