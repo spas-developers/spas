@@ -50,26 +50,38 @@
         </div>
     </section>
     <section>
-        <form class="centered">
-            <table>
-                <div class="body-title open-sans-condensed">
-                    Add Batch
-                </div>
-                <table class="table">
-                    <tr>
-                        <td>
-                            <span> Batch Join Year: </span>
-                        </td>
-                        <td>
-                            <input type="number">
-                        </td>
-                    </tr>
+        <div class="w3-container">
+            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Add Batch</button>
 
-                </table>
-                <div class="centered">
-                    <button class="w3-button w3-black">Add Batch</button>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                    <div class="w3-container">
+                        <span onclick="document.getElementById('id01').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <form class="centered">
+                            <table>
+                                <div class="body-title open-sans-condensed">
+                                    Add Batch
+                                </div>
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span> Batch Join Year: </span>
+                                        </td>
+                                        <td>
+                                            <input type="number">
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <div class="centered">
+                                    <button class="w3-button w3-black">Add Batch</button>
+                                </div>
+                        </form>
+                    </div>
                 </div>
-        </form>
+            </div>
+        </div>
     </section>
 
 </body>
