@@ -22,7 +22,7 @@
   <div class="details" >
   
     <div>
-      <img src="/spas.fe/assets/ashik.jpg"  width="100" height="100">
+      <img src="/spas.fe/assets/user.png"  width="100" height="100">
     </div>
     <div>
         <%
