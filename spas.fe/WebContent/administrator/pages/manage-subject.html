@@ -49,42 +49,63 @@
         </div>
     </section>
     <section>
-        <form class="centered">
-            <table>
-                <div class="body-title open-sans-condensed">
-                    Add Subject
-                </div>
-                <table class="table">
-                    <tr>
-                        <td>
-                            <span>Subject Code: </span>
-                        </td>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span>Subject Name: </span></td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td> <span>Credits:</span></td>
-                        <td><select>
-                                <option selected>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
+        <div class="w3-container">
+            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Add
+                Subject</button>
 
-                            </select></td>
-                    </tr>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                    <div class="w3-container">
+                        <span onclick="document.getElementById('id01').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <form class="centered">
+                            <table>
+                                <div class="body-title open-sans-condensed">
+                                    Add Subject
+                                </div>
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span>Subject Code: </span>
+                                        </td>
+                                        <td>
+                                            <input type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Subject Name: </span></td>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span>Credits:</span></td>
+                                        <td><select>
+                                                <option selected>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
 
-                </table>
-                <div class="centered">
-                    <button class="w3-button w3-black">Add Subject</button>
+                                            </select></td>
+                                    </tr>
+
+                                </table>
+                                <div class="centered">
+                                    <button class="w3-button w3-black">Add Subject</button>
+                                </div>
+                        </form>
+                    </div>
                 </div>
-        </form>
+            </div>
+        </div>
+        <table class="table-border">
+                <tr>
+                    <td>Subject ID</td>
+                    <td>Subject Code</td>
+                    <td>Subject Name</td>
+                    <td>Credit</td>
+                </tr>
+            </table>
     </section>
 
 </body>

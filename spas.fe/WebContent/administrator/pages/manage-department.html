@@ -49,31 +49,53 @@
         </div>
     </section>
     <section>
-        <form class="centered">
-            <table>
-                <div class="body-title open-sans-condensed">
-                    Add Department
+        <div class="w3-container">
+            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Add
+                Department</button>
+
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                    <div class="w3-container">
+                        <span onclick="document.getElementById('id01').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <form class="centered">
+                            <table>
+                                <div class="body-title open-sans-condensed">
+                                    Add Department
+                                </div>
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span>Department Name: </span>
+                                        </td>
+                                        <td>
+                                            <input type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Abbreviation: </span></td>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                </table>
+                                <div class="centered">
+                                    <button class="w3-button w3-black">Add Department</button>
+                                </div>
+                        </form>
+                    </div>
                 </div>
-                <table class="table">
-                    <tr>
-                        <td>
-                            <span>Department Name: </span>
-                        </td>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span>Abbreviation: </span></td>
-                        <td><input type="text"></td>
-                    </tr>
-                </table>
-                <div class="centered">
-                    <button class="w3-button w3-black">Add Department</button>
-                </div>
-        </form>
+            </div>
+        </div>
+        <table class="table-border">
+                <tr>
+                    <td>Department ID</td>
+                    <td>Department Name</td>
+                    <td>abbreviation</td>
+                </tr>
+            </table>
     </section>
 
 </body>
 
 </html>
+
+
