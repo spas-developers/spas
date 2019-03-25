@@ -32,7 +32,6 @@ public class StudentDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/general/pages/student-search.html").forward(request, response);
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
