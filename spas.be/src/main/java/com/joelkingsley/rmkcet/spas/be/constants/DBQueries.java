@@ -153,6 +153,8 @@ public class DBQueries {
 			"                   departments.department_id ) \r\n" + 
 			"       LEFT JOIN students \r\n" + 
 			"              ON ( exam_results.fk_students_student_id = students.student_id ) " +
-			"WHERE  students.register_number = ?"; 
+			"WHERE  students.register_number = ?";
+	
+	public static final String GET_SUBJECT = "SELECT subject_id, subject_code, subject_name, credits FROM subjects where subject_code= ?";
 
 }

@@ -37,5 +37,31 @@ public class SubjectsDAO {
 			throw new AppError(ErrorConstants.SERVER_ERROR);
 		}
 	}
+
+	public Subject getSubjectOfSubjectCode(String subjectCode) throws AppError {
+		Connection connection = DBUtils.getConnection();
+
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.GET_SUBJECT);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			preparedStatement.setString(1, subjectCode);
+			Subject subject =  null;
+
+			while (resultSet.next()) {
+						subject=new Subject (resultSet.getInt(DBConstants.COL_SUBJECTS_SUBJECT_ID),
+						resultSet.getString(DBConstants.COL_SUBJECTS_SUBJECT_CODE),
+						resultSet.getString(DBConstants.COL_SUBJECTS_SUBJECT_NAME),
+						resultSet.getInt(DBConstants.COL_SUBJECTS_CREDIT));
+				
+				
+			}
+			return subject;
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+			throw new AppError(ErrorConstants.SERVER_ERROR);
+		}
+	
+	}
 	
 }
