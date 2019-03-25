@@ -16,4 +16,13 @@
     align-items: center;
     flex-direction: column;
 }
+.table2
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width:80%;
+}
+.table2 >td{
+    border-bottom: 1px solid black;
+}
 
