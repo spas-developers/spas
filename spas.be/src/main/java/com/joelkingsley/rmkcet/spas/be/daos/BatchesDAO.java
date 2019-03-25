@@ -34,5 +34,25 @@ public class BatchesDAO {
 			throw new AppError(ErrorConstants.SERVER_ERROR);
 		}
 	}
+	
+	public boolean addBatch(Batch batch) throws AppError {
+		Connection connection = DBUtils.getConnection();
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.ADD_BATCH);
+			preparedStatement.setInt(1, batch.getBatchStartYear());
+			int affectedRows = preparedStatement.executeUpdate();
+
+			if (affectedRows >= 1) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+			throw new AppError(ErrorConstants.SERVER_ERROR);
+		}
+	}
 
 }
