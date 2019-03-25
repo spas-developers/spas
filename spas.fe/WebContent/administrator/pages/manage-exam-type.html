@@ -1,7 +1,6 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="/spas.fe/general/css/student-search.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/spas.fe/general/css/header.css">
     <link rel="stylesheet" href="/spas.fe/general/css/navbar.css">
@@ -49,6 +48,7 @@
         </div>
     </section>
     <section>
+<<<<<<< HEAD
         <form class="centered">
             <table>
                 <div class="body-title open-sans-condensed">
@@ -72,6 +72,51 @@
                     <button class="w3-button w3-black">Add ExamType</button>
                 </div>
         </form>
+=======
+        <div class="w3-container">
+            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Add
+                Exam Type</button>
+
+            <div id="id01" class="w3-modal custom-modal">
+                <div class="w3-modal-content">
+                    <div class="w3-container">
+                        <span onclick="document.getElementById('id01').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                        <form class="centered">
+                            <table>
+                                <div class="body-title open-sans-condensed">
+                                    Add ExamType
+                                </div>
+                                <table class="form-table">
+                                    <tr>
+                                        <td>
+                                            <span> Name: </span>
+                                        </td>
+                                        <td>
+                                            <input type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Abbreviation: </span></td>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                </table>
+                                <div class="centered">
+                                    <button class="w3-button w3-black">Add ExamType</button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="list-table">
+            <tr>
+                <th>Exam Type ID</th>
+                <th>Exam Type Name</th>
+                <th>Abbreviation</th>
+            </tr>
+        </table>
+>>>>>>> 7e3bcd9042b8fecd5a6fb715b45f4203dacb9b8c
     </section>
 
 </body>

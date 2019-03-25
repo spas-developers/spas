@@ -1,13 +1,15 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="/spas.fe/administrator/css/administrator.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/spas.fe/general/css/header.css">
     <link rel="stylesheet" href="/spas.fe/general/css/navbar.css">
     <link rel="stylesheet" href="/spas.fe/general/css/dashboard.css">
     <link rel="stylesheet" href="/spas.fe/general/css/fonts.css">
-    <link rel="stylesheet" href="/spas.fe/administrator/css/administrator.css">
+    <link rel="stylesheet" href="/spas.fe/css/administrator.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
 </head>
 
@@ -49,8 +51,7 @@
     </section>
     <section>
         <div class="w3-container">
-            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Add
-                Exam</button>
+            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Add Batch</button>
 
             <div id="id01" class="w3-modal">
                 <div class="w3-modal-content">
@@ -60,27 +61,21 @@
                         <form class="centered">
                             <table>
                                 <div class="body-title open-sans-condensed">
-                                    Add Exam
+                                    Add Batch
                                 </div>
                                 <table class="form-table">
                                     <tr>
-                                        <td><span>Exam Type: </span></td>
-                                        <td><select>
-                                            </select></td>
+                                        <td>
+                                            <span> Batch Join Year: </span>
+                                        </td>
+                                        <td>
+                                            <input type="number">
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td><span>Subject: </span></td>
-                                        <td><select>
-                                            </select></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>Semester: </span></td>
-                                        <td><select>
-                                            </select></td>
-                                    </tr>
+
                                 </table>
                                 <div class="centered">
-                                    <button class="w3-button w3-black">Add Exam </button>
+                                    <button class="w3-button w3-black">Add Batch</button>
                                 </div>
                         </form>
                     </div>
@@ -88,14 +83,14 @@
             </div>
         </div>
         <table class="list-table">
-                <tr>
-                    <th>Exam ID</th>
-                    <th>Exam Type</th>
-                    <th>Subject</th>
-                    <th>Semester</th>
-                </tr>
-            </table>
+            <tr>
+                <th>Batch ID</th>
+                <th>Batch Start Year</th>
+            </tr>
+        </table>
     </section>
+   
 
 </body>
+
 </html>

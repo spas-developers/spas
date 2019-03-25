@@ -4,8 +4,7 @@
     font-size: 1.5em;
 }
 
-.table, th, td {
-
+.form-table {
     width:30%;
     border: 0px solid black;
 }
@@ -16,13 +15,19 @@
     align-items: center;
     flex-direction: column;
 }
-.table2
-{
+.list-table {
     border: 1px solid black;
     border-collapse: collapse;
-    width:80%;
+    margin-top: 20px;
+    width: 80%;
 }
-.table2 >td{
-    border-bottom: 1px solid black;
+
+.list-table th, .list-table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.custom-modal {
+    margin-top: 100px;
 }
 
