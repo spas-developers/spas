@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.joelkingsley.rmkcet.spas.be.beans.ExamType;
@@ -36,4 +38,42 @@ public class ExamTypesDAO {
 		}
 	}
 
-}
+	public ExamType addExamType(ExamType examType) throws AppError {
+
+		Connection connection = DBUtils.getConnection();
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.ADD_EXAMTYPE, Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, examType.getExamTypeName());
+			preparedStatement.setString(2, examType.getAbbrevation());
+
+			int affectedRows = preparedStatement.executeUpdate();
+
+	        if (affectedRows == 0) {
+	            throw new AppError(ErrorConstants.EXAMTYPE_NOT_CREATED);
+	        }
+
+	        try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+	            if (generatedKeys.next()) {
+	                examType.setExamTypeID(generatedKeys.getInt(1));
+	                return examType;
+	            }
+	            else {
+	                throw new AppError(ErrorConstants.BATCH_ID_NOT_OBTAINED);
+	            }
+	        }
+			
+		} catch (SQLIntegrityConstraintViolationException exception) {
+			exception.printStackTrace();
+			throw new AppError(ErrorConstants.DUPLICATE_ENTRY, exception);
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+			throw new AppError(ErrorConstants.SERVER_ERROR, sqlException);
+		} catch (AppError appError) {
+			throw appError;
+		}
+	}
+
+	}
+
+
