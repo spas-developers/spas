@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.joelkingsley.rmkcet.spas.be.beans.Subject;
@@ -37,9 +38,30 @@ SubjectsDelegate subjectsDelegate;
 			}
 		} catch (AppError appError) {
 			appError.getException().printStackTrace();
-			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 			return responseEntity;
 		}
 	}
 	
+
+
+@GetMapping("/subjects/{subjectCode}")
+ResponseEntity<?> getAllExamResultsOfsubjectCode(@PathVariable String subjectCode) {
+	try {
+		Subject subject = subjectsDelegate.getSubjectOfSubjectCode(subjectCode);
+		if(subject == null) {
+			ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.SUBJECTS_NOT_FOUND, HttpStatus.NOT_FOUND);
+			return responseEntity;
+		} else {
+			ResponseEntity<Subject> responseEntity = new ResponseEntity<Subject>(subject, HttpStatus.FOUND);
+			return responseEntity;
+		}
+	} catch (AppError appError) {
+		appError.getException().printStackTrace();
+		ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		return responseEntity;
+	}
 }
+
+}
+

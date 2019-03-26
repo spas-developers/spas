@@ -1,4 +1,4 @@
-package com.joelkingsley.rmkcet.spas.be.controllers;
+	package com.joelkingsley.rmkcet.spas.be.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -24,6 +24,7 @@ public class SemestersDAO {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.GET_ALL_SEMESTERS);
 			ResultSet resultSet = preparedStatement.executeQuery();
+			
 			while (resultSet.next()) {
 				
 				Batch batch = new Batch(

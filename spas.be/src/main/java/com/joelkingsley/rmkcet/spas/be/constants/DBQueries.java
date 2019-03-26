@@ -155,5 +155,8 @@ public class DBQueries {
 			"              ON ( exam_results.fk_students_student_id = students.student_id ) " +
 			"WHERE  students.register_number = ?";
 	public static final String ADD_BATCH = "INSERT INTO batches(batch_start_year) VALUES(?)"; 
+	
+	public static final String GET_SUBJECT = "SELECT subject_id, subject_code, subject_name, credit FROM subjects where subject_code LIKE ?";
+	public static final String ADD_EXAM = "INSERT INTO exams(fk_exam_types_exam_type_id,fk_subjects_subject_id,fk_semesters_semester_id) VALUES(?,?,?)";
 
 }

@@ -20,4 +20,13 @@ public class ErrorConstants {
 	public static final String EXAMS_NOT_FOUND = "No Exams to Fetch";
 	
 	public static final String BATCH_NOT_ADDED = "Batch not Added";
+	
+	public static final String DUPLICATE_ENTRY = "Duplicate Entry";
+	
+	public static final String USER_NOT_CREATED = "User not Created";
+	public static final String BATCH_NOT_CREATED = "Batch not Created";
+	public static final String EXAM_NOT_CREATED = "Exam not Created";
+	
+	public static final String BATCH_ID_NOT_OBTAINED = "Creating batch failed, no ID obtained.";
+	public static final String EXAM_ID_NOT_OBTAINED = "Creating exam failed, no ID obtained.";
 }

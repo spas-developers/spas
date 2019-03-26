@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.joelkingsley.rmkcet.spas.be.beans.Batch;
@@ -35,23 +37,37 @@ public class BatchesDAO {
 		}
 	}
 	
-	public boolean addBatch(Batch batch) throws AppError {
+	public Batch addBatch(Batch batch) throws AppError {
 		Connection connection = DBUtils.getConnection();
 		
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.ADD_BATCH);
+			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.ADD_BATCH, Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setInt(1, batch.getBatchStartYear());
+			
 			int affectedRows = preparedStatement.executeUpdate();
 
-			if (affectedRows >= 1) {
-				return true;
-			} else {
-				return false;
-			}
+	        if (affectedRows == 0) {
+	            throw new AppError(ErrorConstants.BATCH_NOT_CREATED);
+	        }
+
+	        try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+	            if (generatedKeys.next()) {
+	                batch.setBatchID(generatedKeys.getInt(1));
+	                return batch;
+	            }
+	            else {
+	                throw new AppError(ErrorConstants.BATCH_ID_NOT_OBTAINED);
+	            }
+	        }
 			
+		} catch (SQLIntegrityConstraintViolationException exception) {
+			exception.printStackTrace();
+			throw new AppError(ErrorConstants.DUPLICATE_ENTRY, exception);
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
-			throw new AppError(ErrorConstants.SERVER_ERROR);
+			throw new AppError(ErrorConstants.SERVER_ERROR, sqlException);
+		} catch (AppError appError) {
+			throw appError;
 		}
 	}
 

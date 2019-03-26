@@ -36,26 +36,21 @@ BatchesDelegate batchesDelegate;
 			}
 		} catch (AppError appError) {
 			appError.getException().printStackTrace();
-			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 			return responseEntity;
 		}
 	}
 	
-	@PostMapping("batches")
-	ResponseEntity<String> addBatch(@RequestBody Batch batch) {
+	@PostMapping("/batches")
+	ResponseEntity<?> addBatch(@RequestBody Batch batch) {
 		 try { 
-			 boolean added = batchesDelegate.addBatch(batch); 
-			 if (added) {		
-				 ResponseEntity<String> responseEntity = new ResponseEntity<String>("Added", HttpStatus.OK); 
-				 return responseEntity; 
-			 } else { 
-				 ResponseEntity<String>
-				 responseEntity = new ResponseEntity<String>(ErrorConstants.BATCH_NOT_ADDED, HttpStatus.INTERNAL_SERVER_ERROR); 
-				 return responseEntity; 
-			} 
+			 Batch addedBatch = batchesDelegate.addBatch(batch); 
+			 ResponseEntity<Batch> responseEntity = new ResponseEntity<Batch>(addedBatch, HttpStatus.OK); 
+			 return responseEntity;
+	
 		} catch (AppError appError) { 
 			appError.getException().printStackTrace(); 
-			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR); 
+			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR); 
 			return responseEntity; 
 		}
 	}

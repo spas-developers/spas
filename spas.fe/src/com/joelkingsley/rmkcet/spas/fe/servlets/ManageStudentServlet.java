@@ -19,7 +19,6 @@ public class ManageStudentServlet extends HttpServlet {
      */
     public ManageStudentServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

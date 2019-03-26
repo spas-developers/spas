@@ -37,7 +37,7 @@ SemestersDelegate semestersDelegate;
 			}
 		} catch (AppError appError) {
 			appError.getException().printStackTrace();
-			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 			return responseEntity;
 		}
 	}

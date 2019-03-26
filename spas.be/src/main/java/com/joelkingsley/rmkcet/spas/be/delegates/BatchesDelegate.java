@@ -23,7 +23,7 @@ BatchesDAO batchesDAO;
 		}
 	}
 	
-	public boolean addBatch(Batch batch) throws AppError {
+	public Batch addBatch(Batch batch) throws AppError {
 		try {
 			return batchesDAO.addBatch(batch);
 		} catch (AppError e) {

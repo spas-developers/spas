@@ -5,9 +5,13 @@ import java.util.ArrayList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.joelkingsley.rmkcet.spas.be.beans.Batch;
 import com.joelkingsley.rmkcet.spas.be.beans.User;
+import com.joelkingsley.rmkcet.spas.be.beans.requests.AddUserRequest;
 import com.joelkingsley.rmkcet.spas.be.constants.ErrorConstants;
 import com.joelkingsley.rmkcet.spas.be.delegates.UsersDelegate;
 import com.joelkingsley.rmkcet.spas.be.utils.AppError;
@@ -35,8 +39,22 @@ public class UsersController {
 			}
 		} catch (AppError appError) {
 			appError.getException().printStackTrace();
-			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 			return responseEntity;
+		}
+	}
+	
+	@PostMapping("users")
+	ResponseEntity<?> addUser(@RequestBody AddUserRequest addUserRequest) {
+		 try { 
+			 AddUserRequest addedUser = usersDelegate.addUser(addUserRequest); 
+			 ResponseEntity<AddUserRequest> responseEntity = new ResponseEntity<AddUserRequest>(addedUser, HttpStatus.OK); 
+			 return responseEntity;
+	
+		} catch (AppError appError) { 
+			appError.getException().printStackTrace(); 
+			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR); 
+			return responseEntity; 
 		}
 	}
 	

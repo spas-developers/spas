@@ -23,5 +23,14 @@ SubjectsDAO subjectsDAO;
 			throw e;
 		}
 	}
+
+	public Subject getSubjectOfSubjectCode(String subjectCode) throws AppError {
+		try {
+			return subjectsDAO.getSubjectOfSubjectCode(subjectCode);
+		} catch (AppError e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
 	
 }

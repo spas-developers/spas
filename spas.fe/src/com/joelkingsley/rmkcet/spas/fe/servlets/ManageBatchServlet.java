@@ -19,7 +19,6 @@ public class ManageBatchServlet extends HttpServlet {
      */
     public ManageBatchServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
