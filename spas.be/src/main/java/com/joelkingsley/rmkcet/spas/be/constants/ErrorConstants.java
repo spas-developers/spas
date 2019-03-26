@@ -31,4 +31,5 @@ public class ErrorConstants {
 	public static final String BATCH_ID_NOT_OBTAINED = "Creating batch failed, no ID obtained.";
 	public static final String EXAM_ID_NOT_OBTAINED = "Creating exam failed, no ID obtained.";
 	public static final String EXAM_RESULT_ID_NOT_OBTAINED = "Creating exam result failed, no ID obtained.";
+	public static final String EXAMTYPE_NOT_CREATED = "ExamTypes not Created";
 }

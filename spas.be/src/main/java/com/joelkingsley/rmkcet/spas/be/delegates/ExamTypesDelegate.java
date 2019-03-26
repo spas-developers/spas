@@ -22,6 +22,17 @@ import com.joelkingsley.rmkcet.spas.be.utils.AppError;
 					throw e;
 				}
 			}
+
+			public ExamType addExamType(ExamType examType) throws AppError {
+
+				try {
+					return examTypesDAO.addExamType(examType);
+				} catch (AppError e) {
+					e.printStackTrace();
+					throw e;
+				}
+			
+			}
 			
 
 }

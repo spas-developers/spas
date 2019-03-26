@@ -12,6 +12,12 @@ public class ExamType implements Serializable{
 	int examTypeID;
 	String examTypeName;
 	String abbrevation;
+	
+	
+	
+	public ExamType() {
+		super();
+	}
 	public ExamType(int examTypeID, String examTypeName, String abbrevation) {
 		super();
 		this.examTypeID = examTypeID;
