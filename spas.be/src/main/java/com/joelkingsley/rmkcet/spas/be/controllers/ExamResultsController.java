@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.joelkingsley.rmkcet.spas.be.beans.ExamResult;
-import com.joelkingsley.rmkcet.spas.be.beans.requests.AddExamRequest;
 import com.joelkingsley.rmkcet.spas.be.beans.requests.AddExamResultRequest;
 import com.joelkingsley.rmkcet.spas.be.constants.ErrorConstants;
 import com.joelkingsley.rmkcet.spas.be.delegates.ExamResultsDelegate;
@@ -36,7 +35,7 @@ ExamResultsDelegate examResultsDelegate;
 				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.EXAM_RESULTS_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<ExamResult>> responseEntity = new ResponseEntity<ArrayList<ExamResult>>(examResults, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<ExamResult>> responseEntity = new ResponseEntity<ArrayList<ExamResult>>(examResults, HttpStatus.OK);
 				return responseEntity;
 			}
 		} catch (AppError appError) {
@@ -54,7 +53,7 @@ ExamResultsDelegate examResultsDelegate;
 				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.EXAM_RESULTS_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<ExamResult>> responseEntity = new ResponseEntity<ArrayList<ExamResult>>(examResults, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<ExamResult>> responseEntity = new ResponseEntity<ArrayList<ExamResult>>(examResults, HttpStatus.OK);
 				return responseEntity;
 			}
 		} catch (AppError appError) {

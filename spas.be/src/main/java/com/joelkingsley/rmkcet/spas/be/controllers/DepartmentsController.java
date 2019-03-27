@@ -32,7 +32,7 @@ public class DepartmentsController {
 				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.DEPARTMENTS_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<Department>> responseEntity = new ResponseEntity<ArrayList<Department>>(departments, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<Department>> responseEntity = new ResponseEntity<ArrayList<Department>>(departments, HttpStatus.OK);
 				return responseEntity;
 			}
 		} catch (AppError appError) {

@@ -32,7 +32,7 @@ SemestersDelegate semestersDelegate;
 				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.SEMESTERS_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<Semester>> responseEntity = new ResponseEntity<ArrayList<Semester>>(semesters, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<Semester>> responseEntity = new ResponseEntity<ArrayList<Semester>>(semesters, HttpStatus.OK);
 				return responseEntity;
 			}
 		} catch (AppError appError) {

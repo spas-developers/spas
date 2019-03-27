@@ -8,7 +8,6 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.joelkingsley.rmkcet.spas.be.beans.Batch;
 import com.joelkingsley.rmkcet.spas.be.beans.Department;
 import com.joelkingsley.rmkcet.spas.be.beans.User;
 import com.joelkingsley.rmkcet.spas.be.beans.UserType;
@@ -56,25 +55,30 @@ public class UsersDAO {
 		}
 	}
 	
-	public User addUser(AddUserRequest addUserRequest) throws AppError {
+	public AddUserRequest addUser(AddUserRequest addUserRequest) throws AppError {
 		Connection connection = DBUtils.getConnection();
 		
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.ADD_USER, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, addUserRequest.);
+			preparedStatement.setString(1, addUserRequest.getName());
+			preparedStatement.setString(2, addUserRequest.getEmail());
+			preparedStatement.setString(3, addUserRequest.getPassword());
+			preparedStatement.setInt(4, addUserRequest.getDepartmentID());
+			preparedStatement.setInt(5, addUserRequest.getUserTypeID());
+			
 			int affectedRows = preparedStatement.executeUpdate();
 
 	        if (affectedRows == 0) {
-	            throw new AppError(ErrorConstants.BATCH_NOT_CREATED);
+	            throw new AppError(ErrorConstants.USER_NOT_CREATED);
 	        }
 
 	        try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
 	            if (generatedKeys.next()) {
-	                batch.setBatchID(generatedKeys.getInt(1));
-	                return batch;
+	                addUserRequest.setUserID((generatedKeys.getInt(1)));
+	                return addUserRequest;
 	            }
 	            else {
-	                throw new AppError(ErrorConstants.BATCH_ID_NOT_OBTAINED);
+	                throw new AppError(ErrorConstants.USER_ID_NOT_OBTAINED);
 	            }
 	        }
 			

@@ -33,7 +33,7 @@ SubjectsDelegate subjectsDelegate;
 				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.SUBJECTS_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<Subject>> responseEntity = new ResponseEntity<ArrayList<Subject>>(subjects, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<Subject>> responseEntity = new ResponseEntity<ArrayList<Subject>>(subjects, HttpStatus.OK);
 				return responseEntity;
 			}
 		} catch (AppError appError) {
