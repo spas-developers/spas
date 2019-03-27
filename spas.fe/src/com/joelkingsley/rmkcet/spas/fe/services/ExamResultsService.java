@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 
 import com.joelkingsley.rmkcet.spas.fe.beans.ExamResult;
+import com.joelkingsley.rmkcet.spas.fe.beans.requests.AddExamResultRequest;
 import com.joelkingsley.rmkcet.spas.fe.delegates.ExamResultsDelegate;
 
 public class ExamResultsService {
@@ -17,6 +18,10 @@ public class ExamResultsService {
 
 	public ArrayList<ExamResult> getAllExamResultsOfRegisterNumber(BigInteger registerNumber) {
 		return examResultsDelegate.getAllExamResultsOfRegisterNumber(registerNumber);
+	}
+	
+	public AddExamResultRequest addExamResultRequest(AddExamResultRequest addExamResultRequest) {
+		return examResultsDelegate.addExamResult(addExamResultRequest);
 	}
 	
 }
