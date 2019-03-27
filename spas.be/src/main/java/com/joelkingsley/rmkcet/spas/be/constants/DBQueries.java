@@ -159,5 +159,7 @@ public class DBQueries {
 	public static final String GET_SUBJECT = "SELECT subject_id, subject_code, subject_name, credit FROM subjects where subject_code LIKE ?";
 	public static final String ADD_EXAM = "INSERT INTO exams(fk_exam_types_exam_type_id,fk_subjects_subject_id,fk_semesters_semester_id) VALUES(?,?,?)";
 	public static final String ADD_EXAMTYPE = "INSERT INTO examTypes(exam_Type_name, abbreviation) values(?,?)";
+	public static final String ADD_STUDENT = "INSERT INTO students(student_id, register_number, student_name, gender, is_hosteler, fk_batches_batch_id, fk_departments_department_id) values(?,?,?,?,?,?,?) ";
+	public static final String ADD_SUBJECT = "INSERT INTO subjects(subject_code, subject_name, credit) values(?,?,?)";
 
 }

@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.joelkingsley.rmkcet.spas.be.beans.Subject;
@@ -60,6 +62,20 @@ ResponseEntity<?> getAllExamResultsOfsubjectCode(@PathVariable String subjectCod
 		appError.getException().printStackTrace();
 		ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		return responseEntity;
+	}
+}
+
+@PostMapping("/subjects")
+ResponseEntity<?> addsubject(@RequestBody Subject subject) {
+	 try { 
+		 Subject addedSubject = subjectsDelegate.addSubject(subject); 
+		 ResponseEntity<Subject> responseEntity = new ResponseEntity<Subject>(addedSubject, HttpStatus.OK); 
+		 return responseEntity;
+
+	} catch (AppError appError) { 
+		appError.getException().printStackTrace(); 
+		ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR); 
+		return responseEntity; 
 	}
 }
 

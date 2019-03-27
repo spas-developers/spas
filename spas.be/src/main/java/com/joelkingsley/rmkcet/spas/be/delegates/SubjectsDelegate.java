@@ -32,5 +32,14 @@ SubjectsDAO subjectsDAO;
 			throw e;
 		}
 	}
+
+	public Subject addSubject(Subject subject) throws AppError {
+		try {
+			return subjectsDAO.addSubject(subject);
+		} catch (AppError e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
 	
 }

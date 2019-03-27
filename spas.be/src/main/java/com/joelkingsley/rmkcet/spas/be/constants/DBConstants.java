@@ -3,7 +3,7 @@ package com.joelkingsley.rmkcet.spas.be.constants;
 public class DBConstants {
 	public static final String DRIVER_URL = "jdbc:mysql://localhost:3306/rmkcet_db?autoReconnect=true&useSSL=false";
 	public static final String DRIVER_USERNAME = "root";
-	public static final String DRIVER_PASSWORD = "joel123R";
+	public static final String DRIVER_PASSWORD = "ashik";
 	
 	public static final String TABLE_DEPARTMENTS = "departments";
 	public static final String COL_DEPARTMENTS_DEPARTMENT_ID = "department_id";
