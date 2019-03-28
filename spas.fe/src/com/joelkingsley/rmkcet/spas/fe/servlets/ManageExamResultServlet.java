@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.joelkingsley.rmkcet.spas.fe.beans.Exam;
 import com.joelkingsley.rmkcet.spas.fe.beans.ExamResult;
+import com.joelkingsley.rmkcet.spas.fe.beans.Student;
+import com.joelkingsley.rmkcet.spas.fe.beans.requests.AddExamResultRequest;
 import com.joelkingsley.rmkcet.spas.fe.services.ExamResultsService;
 import com.joelkingsley.rmkcet.spas.fe.services.ExamsService;
+import com.joelkingsley.rmkcet.spas.fe.services.StudentsService;
 
 /**
  * Servlet implementation class ManageExamResultServlet
@@ -40,6 +43,10 @@ public class ManageExamResultServlet extends HttpServlet {
 		ArrayList<Exam> exams = examsService.getAllExams();
 		request.setAttribute("exams", exams);
 		
+		StudentsService studentsService = new StudentsService();
+		ArrayList<Student> students = studentsService.getAllStudents();
+		request.setAttribute("students", students);
+		
 		request.getRequestDispatcher("/administrator/pages/manage-exam-result.jsp").forward(request, response);
 	}
 
@@ -48,9 +55,19 @@ public class ManageExamResultServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ExamResultsService examResultsService = new ExamResultsService();
+		String exam = request.getParameter("exam");
+		String student = request.getParameter("student");
+		int marks = Integer.parseInt(request.getParameter("marks"));
+		String grade = request.getParameter("grade");
 		
-		if (request.getParameter("add-exam-result") != null) {
-			
+		int examID = Integer.parseInt(exam.split(":")[0]);
+		int studentID = Integer.parseInt(student.split(":")[0]);
+		
+		boolean submitButtonPressed = request.getParameter("addExamResultButton") != null;
+		
+		if (submitButtonPressed) {
+			AddExamResultRequest addedExamResult = examResultsService.addExamResult(new AddExamResultRequest(examID, studentID, marks, grade));
+			System.out.println(addedExamResult);
 		}
 		
 		doGet(request, response);

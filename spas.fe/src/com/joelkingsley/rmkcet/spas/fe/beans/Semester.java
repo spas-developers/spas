@@ -22,6 +22,16 @@ public class Semester implements Serializable {
 		this.department = department;
 	}
 
+
+	public Semester(int semesterNumber, Batch batch, Department department) {
+		super();
+		this.semesterNumber = semesterNumber;
+		this.batch = batch;
+		this.department = department;
+	}
+
+
+
 	public int getSemesterID() {
 		return semesterID;
 	}

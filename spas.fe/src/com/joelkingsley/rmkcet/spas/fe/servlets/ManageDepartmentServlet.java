@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.joelkingsley.rmkcet.spas.fe.beans.Batch;
 import com.joelkingsley.rmkcet.spas.fe.beans.Department;
+import com.joelkingsley.rmkcet.spas.fe.services.BatchesService;
 import com.joelkingsley.rmkcet.spas.fe.services.DepartmentsService;
 
 /**
@@ -40,6 +42,23 @@ public class ManageDepartmentServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("manageDepartmentServlet doPost");
+		
+		DepartmentsService departmentsService = new DepartmentsService();
+		String departmentName = request.getParameter("department");
+		String abbreviation = request.getParameter("abbreviation");
+		
+		System.out.println(departmentName);
+		System.out.println(abbreviation);
+		
+		boolean submitButtonPressed = request.getParameter("addDepartmentButton") != null;
+		
+		if (submitButtonPressed) {
+			Department addedDepartment = departmentsService.addDepartment(new Department(departmentName, abbreviation));
+			System.out.println(addedDepartment);
+		}
+		
 		doGet(request, response);
 	}
 

@@ -89,7 +89,7 @@
                     <div class="w3-container">
                         <span onclick="document.getElementById('id01').style.display='none'"
                             class="w3-button w3-display-topright">&times;</span>
-                        <form class="centered">
+                        <form action="manageSemester" class="centered" method="POST">
                             <table>
                                 <div class="body-title open-sans-condensed">
                                     Add Semester
@@ -100,26 +100,42 @@
                                             <span> Semester Number: </span>
                                         </td>
                                         <td>
-                                            <input type="number">
+                                            <input type="number" name="semesterNumber">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><span>Batch: </span></td>
-                                        <td><select>
+                                        <td><select name="batch">
+                                            <% 
+                                                ArrayList<Batch> batches = (ArrayList<Batch>) request.getAttribute("batches");
+                                                for(int i=0 ; i < batches.size() ; i++) {
+                                                    int batchStartYear = batches.get(i).getBatchStartYear();
+                                                    int batchEndYear = batchStartYear + 4;
+                                                    out.print("<option>");
+                                                    out.print(batches.get(i).getBatchID() + ":");
+                                                    out.print(batchStartYear + "-" + batchEndYear);
+                                                    out.print("</option>");
+                                                }
+                                             %>
                                             </select></td>
                                     </tr>
                                     <tr>
                                         <td> <span>Department:</span></td>
-                                        <td><select>
-                                                <option>CSE</option>
-                                                <option>EEE</option>
-                                                <option>ECE</option>
-                                                <option>MECH</option>
+                                        <td><select name="department">
+                                            <% 
+                                                ArrayList<Department> departments = (ArrayList<Department>) request.getAttribute("departments");
+                                                for(int i=0 ; i < departments.size() ; i++) {
+                                                    out.print("<option>");
+                                                    out.print(departments.get(i).getDepartmentID() + ":");
+                                                    out.print(departments.get(i).getDepartmentName());
+                                                    out.print("</option>");
+                                                }
+                                             %>
                                             </select></td>
                                     </tr>
                                 </table>
                                 <div class="centered">
-                                    <button class="w3-button w3-black add-button">Add Semester</button>
+                                    <button class="w3-button w3-black add-button" name="addSemesterButton">Add Semester</button>
                                 </div>
                         </form>
                     </div>

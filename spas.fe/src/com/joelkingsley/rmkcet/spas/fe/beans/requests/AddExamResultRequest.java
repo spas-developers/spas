@@ -28,6 +28,14 @@ public class AddExamResultRequest implements Serializable{
 		this.grade = grade;
 	}
 
+	public AddExamResultRequest(int examID, int studentID, int marks, String grade) {
+		super();
+		this.examID = examID;
+		this.studentID = studentID;
+		this.marks = marks;
+		this.grade = grade;
+	}
+
 	public int getExamResultID() {
 		return examResultID;
 	}

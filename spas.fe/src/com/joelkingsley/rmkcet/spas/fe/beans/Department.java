@@ -18,6 +18,16 @@ public class Department implements Serializable {
 		this.departmentName = departmentName;
 		this.abbreviation = abbreviation;
 	}
+	
+	
+
+	public Department(String departmentName, String abbreviation) {
+		super();
+		this.departmentName = departmentName;
+		this.abbreviation = abbreviation;
+	}
+
+
 
 	public int getDepartmentID() {
 		return departmentID;

@@ -88,7 +88,7 @@
                     <div class="w3-container">
                         <span onclick="document.getElementById('id01').style.display='none'"
                             class="w3-button w3-display-topright">&times;</span>
-                        <form class="centered" action="" method="POST">
+                        <form class="centered" action="manageBatch" method="POST">
                             <table>
                                 <div class="body-title open-sans-condensed">
                                     Add Batch
@@ -99,13 +99,13 @@
                                             <span> Batch Join Year: </span>
                                         </td>
                                         <td>
-                                            <input type="number">
+                                            <input type="number" name="batchStartYear">
                                         </td>
                                     </tr>
 
                                 </table>
                                 <div class="centered">
-                                    <button class="w3-button w3-black add-button" name="add-batch-button" type="submit">Add Batch</button>
+                                    <button class="w3-button w3-black add-button" name="addBatchButton" type="submit">Add Batch</button>
                                 </div>
                         </form>
                     </div>

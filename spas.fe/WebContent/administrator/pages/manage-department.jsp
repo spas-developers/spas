@@ -85,7 +85,7 @@
                     <div class="w3-container">
                         <span onclick="document.getElementById('id01').style.display='none'"
                             class="w3-button w3-display-topright">&times;</span>
-                        <form class="centered">
+                        <form action="manageDepartment" class="centered" method="POST">
                             <table>
                                 <div class="body-title open-sans-condensed">
                                     Add Department
@@ -96,16 +96,16 @@
                                             <span>Department Name: </span>
                                         </td>
                                         <td>
-                                            <input type="text">
+                                            <input type="text" name="department">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><span>Abbreviation: </span></td>
-                                        <td><input type="text"></td>
+                                        <td><input type="text" name="abbreviation"></td>
                                     </tr>
                                 </table>
                                 <div class="centered">
-                                    <button class="w3-button w3-black add-button">Add Department</button>
+                                    <button class="w3-button w3-black add-button" name="addDepartmentButton">Add Department</button>
                                 </div>
                         </form>
                     </div>

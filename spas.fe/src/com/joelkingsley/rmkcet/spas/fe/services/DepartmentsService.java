@@ -18,4 +18,8 @@ DepartmentsDelegate departmentsDelegate;
 		return departmentsDelegate.getAllDepartments();
 	}
 	
+	public Department addDepartment(Department department) {
+		return departmentsDelegate.addDepartment(department);
+	}
+	
 }

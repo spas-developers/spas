@@ -18,6 +18,11 @@ public class ExamType implements Serializable{
 		this.examTypeName = examTypeName;
 		this.abbrevation = abbrevation;
 	}
+	public ExamType(String examTypeName, String abbrevation) {
+		super();
+		this.examTypeName = examTypeName;
+		this.abbrevation = abbrevation;
+	}
 	public int getExamTypeID() {
 		return examTypeID;
 	}

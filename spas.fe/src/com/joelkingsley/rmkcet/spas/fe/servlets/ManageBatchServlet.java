@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.joelkingsley.rmkcet.spas.fe.beans.Batch;
+import com.joelkingsley.rmkcet.spas.fe.beans.requests.AddExamRequest;
 import com.joelkingsley.rmkcet.spas.fe.services.BatchesService;
 
 /**
@@ -40,6 +41,19 @@ public class ManageBatchServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("manageBatchServlet doPost");
+		
+		BatchesService batchesService = new BatchesService();
+		int batchStartYear = Integer.parseInt(request.getParameter("batchStartYear"));
+		
+		boolean submitButtonPressed = request.getParameter("addBatchButton") != null;
+		
+		if (submitButtonPressed) {
+			Batch addedbatch = batchesService.addBatch(new Batch(batchStartYear));
+			System.out.println(addedbatch);
+		}
+		
 		doGet(request, response);
 	}
 

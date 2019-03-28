@@ -28,6 +28,17 @@ public class AddStudentRequest {
 		super();
 	}
 
+	public AddStudentRequest(BigInteger registerNumber, String studentName, String gender, boolean isHosteler,
+			int batchID, int departmentID) {
+		super();
+		this.registerNumber = registerNumber;
+		this.studentName = studentName;
+		this.gender = gender;
+		this.isHosteler = isHosteler;
+		this.batchID = batchID;
+		this.departmentID = departmentID;
+	}
+
 	public int getStudentID() {
 		return studentID;
 	}

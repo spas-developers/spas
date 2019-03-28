@@ -24,6 +24,13 @@ public class AddSemesterRequest implements Serializable {
 		this.batchID = batchID;
 		this.departmentID = departmentID;
 	}
+	
+	public AddSemesterRequest(int semesterNumber, int batchID, int departmentID) {
+		super();
+		this.semesterNumber = semesterNumber;
+		this.batchID = batchID;
+		this.departmentID = departmentID;
+	}
 	public int getSemesterID() {
 		return semesterID;
 	}

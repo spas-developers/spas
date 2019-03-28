@@ -24,7 +24,7 @@ public class ExamResultsService {
 		return examResultsDelegate.getAllExamResultsOfRegisterNumber(registerNumber);
 	}
 	
-	public AddExamResultRequest addExamResultRequest(AddExamResultRequest addExamResultRequest) {
+	public AddExamResultRequest addExamResult(AddExamResultRequest addExamResultRequest) {
 		return examResultsDelegate.addExamResult(addExamResultRequest);
 	}
 	

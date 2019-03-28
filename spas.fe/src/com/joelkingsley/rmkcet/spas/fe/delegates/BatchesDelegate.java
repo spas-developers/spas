@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.joelkingsley.rmkcet.spas.fe.beans.Batch;
+import com.joelkingsley.rmkcet.spas.fe.beans.requests.AddExamResultRequest;
 import com.joelkingsley.rmkcet.spas.fe.utils.RestCaller;
 
 public class BatchesDelegate {
@@ -28,6 +29,19 @@ public class BatchesDelegate {
 		batches = gson.fromJson(json, type);
 		
 		return batches;
+	}
+	
+	public Batch addBatch(Batch batch) {
+		RestCaller restCaller = new RestCaller();
+		
+		String json = null;
+		Gson gson = new Gson();
+		Type type = new TypeToken<Batch>() {}.getType();
+		json = restCaller.doPost("http://localhost:8080/batches/",  gson.toJson(batch, type));
+		System.out.println(json);
+		
+		return gson.fromJson(json, type);
+		
 	}
 	
 }

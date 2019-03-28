@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.joelkingsley.rmkcet.spas.fe.beans.Batch;
 import com.joelkingsley.rmkcet.spas.fe.beans.ExamType;
+import com.joelkingsley.rmkcet.spas.fe.services.BatchesService;
 import com.joelkingsley.rmkcet.spas.fe.services.ExamTypesService;
 
 /**
@@ -40,6 +42,20 @@ public class ManageExamTypeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("manageExamTypeServlet doPost");
+		
+		ExamTypesService examTypesService = new ExamTypesService();
+		String examTypeName = request.getParameter("examTypeName");
+		String abbreviation = request.getParameter("abbreviation");
+		
+		boolean submitButtonPressed = request.getParameter("addExamTypeButton") != null;
+		
+		if (submitButtonPressed) {
+			ExamType addedExamType = examTypesService.addExamType(new ExamType(examTypeName, abbreviation));
+			System.out.println(addedExamType);
+		}
+		
 		doGet(request, response);
 	}
 

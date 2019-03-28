@@ -96,16 +96,16 @@
                     <div class="w3-container">
                         <span onclick="document.getElementById('id01').style.display='none'"
                             class="w3-button w3-display-topright">&times;</span>
-                        <form action="" class="centered" method="POST">
+                        <form action="manageExamResult" class="centered" method="POST">
                             <table>
                                 <div class="body-title open-sans-condensed">
                                     Add Exam Results
                                 </div>
                                 <table class="form-table">
                                     <tr>
-                                        <td><span>Exam: </span></td>
+                                        <td><span>Ex
                                         <td>
-                                            <select>
+                                            <select name="exam">
                                                 <% 
                                                     ArrayList<Exam> exams = (ArrayList<Exam>) request.getAttribute("exams");
                                                     for(int i=0 ; i < exams.size() ; i++) {
@@ -118,16 +118,30 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><span>Student Roll no: </span></td>
-                                        <td><input type="number"></td>
+                                        <td><span>Student: </span></td>
+                                        <td>
+                                            <select name="student">
+                                                <% 
+                                                    ArrayList<Student> students = (ArrayList<Student>) request.getAttribute("students");
+                                                    for(int i=0 ; i < students.size() ; i++) {
+                                                        int batchStartYear = students.get(i).getBatch().getBatchStartYear();
+                                                        int batchEndYear = batchStartYear + 4;
+                                                        out.print("<option>");
+                                                        out.print(students.get(i).getStudentID() + ":" + students.get(i).getStudentName());
+                                                        out.print("(" + batchStartYear + "-" + batchEndYear + ")");
+                                                        out.print("</option>");
+                                                    }
+                                                 %>
+                                            </select>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><span>Marks: </span></td>
-                                        <td><input type="number"></td>
+                                        <td><input type="number" name="marks"></td>
                                     </tr>
                                     <tr>
                                         <td> <span>Grade:</span></td>
-                                        <td><select>
+                                        <td><select name="grade">
                                                 <option>S</option>
                                                 <option>A</option>
                                                 <option>B</option>
@@ -139,7 +153,7 @@
                                     </tr>
                                 </table>
                                 <div class="centered">
-                                    <button class="w3-button w3-black add-button" name="add-exam-result">Add Exam Result</button>
+                                    <button class="w3-button w3-black add-button" name="addExamResultButton">Add Exam Result</button>
                                 </div>
                         </form>
                     </div>

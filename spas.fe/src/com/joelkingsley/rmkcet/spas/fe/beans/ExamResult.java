@@ -16,6 +16,16 @@ public class ExamResult {
 		this.exam = exam;
 		this.student = student;
 	}
+	
+	public ExamResult(int marks, String grade, Exam exam, Student student) {
+		super();
+		this.marks = marks;
+		this.grade = grade;
+		this.exam = exam;
+		this.student = student;
+	}
+
+
 
 	public int getExamResultID() {
 		return examResultID;

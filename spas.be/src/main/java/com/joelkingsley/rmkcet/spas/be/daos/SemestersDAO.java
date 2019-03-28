@@ -62,10 +62,9 @@ public class SemestersDAO {
 		
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.ADD_SEMESTER, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setInt(1,  addSemesterRequest.getSemesterID());
-			preparedStatement.setInt(2, addSemesterRequest.getSemesterNumber());
-			preparedStatement.setInt(3,  addSemesterRequest.getBatchID());
-			preparedStatement.setInt(4,  addSemesterRequest.getDepartmentID());
+			preparedStatement.setInt(1, addSemesterRequest.getSemesterNumber());
+			preparedStatement.setInt(2,  addSemesterRequest.getBatchID());
+			preparedStatement.setInt(3,  addSemesterRequest.getDepartmentID());
 
 
 			

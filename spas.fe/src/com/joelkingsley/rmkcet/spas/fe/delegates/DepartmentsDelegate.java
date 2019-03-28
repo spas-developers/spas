@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.joelkingsley.rmkcet.spas.fe.beans.Department;
+import com.joelkingsley.rmkcet.spas.fe.beans.requests.AddExamResultRequest;
 import com.joelkingsley.rmkcet.spas.fe.utils.RestCaller;
 
 public class DepartmentsDelegate {
@@ -28,6 +29,19 @@ public class DepartmentsDelegate {
 		departments = gson.fromJson(json, type);
 		
 		return departments;
+	}
+	
+	public Department addDepartment(Department department) {
+		RestCaller restCaller = new RestCaller();
+		
+		String json = null;
+		Gson gson = new Gson();
+		Type type = new TypeToken<Department>() {}.getType();
+		json = restCaller.doPost("http://localhost:8080/departments/",  gson.toJson(department, type));
+		System.out.println(json);
+		
+		return gson.fromJson(json, type);
+		
 	}
 	
 }

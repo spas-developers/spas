@@ -17,6 +17,12 @@ public class Batch implements Serializable {
 		this.batchID = batchID;
 		this.batchStartYear = batchStartYear;
 	}
+	
+	public Batch(int batchStartYear) {
+		super();
+		this.batchStartYear = batchStartYear;
+	}
+
 	public int getBatchID() {
 		return batchID;
 	}
