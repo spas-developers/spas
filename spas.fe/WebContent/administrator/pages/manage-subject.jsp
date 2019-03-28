@@ -87,7 +87,7 @@
                     <div class="w3-container">
                         <span onclick="document.getElementById('id01').style.display='none'"
                             class="w3-button w3-display-topright">&times;</span>
-                        <form class="centered">
+                        <form action="manageSubject" class="centered" method="POST">
                             <table>
                                 <div class="body-title open-sans-condensed">
                                     Add Subject
@@ -98,16 +98,16 @@
                                             <span>Subject Code: </span>
                                         </td>
                                         <td>
-                                            <input type="text">
+                                            <input type="text" name="subjectCode">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><span>Subject Name: </span></td>
-                                        <td><input type="text"></td>
+                                        <td><input type="text" name="subjectName"></td>
                                     </tr>
                                     <tr>
                                         <td> <span>Credits:</span></td>
-                                        <td><select>
+                                        <td><select name="credits">
                                                 <option selected>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -120,7 +120,7 @@
 
                                 </table>
                                 <div class="centered">
-                                    <button class="w3-button w3-black add-button">Add Subject</button>
+                                    <button class="w3-button w3-black add-button" name="addSubjectButton">Add Subject</button>
                                 </div>
                         </form>
                     </div>
