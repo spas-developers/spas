@@ -74,9 +74,9 @@
                 for(int i=0; i < exams.size(); i++) {
                     out.println("<tr>");
                     out.println("<td>" + exams.get(i).getExamID() + "</td>");
-                    out.println("<td>" + exams.get(i).getExamType().getExamTypeNMame + "</td>");
-                    out.println("<td>" + examss.get(i).getSemester().getBatch().getBatchStartYear() + "</td>");
-                    out.println("<td>" + examss.get(i).getSemester,getDepartment().getAbbreviation() + "</td>");
+                    out.println("<td>" + exams.get(i).getExamType().getExamTypeName() + "</td>");
+                    out.println("<td>" + exams.get(i).getSemester().getBatch().getBatchStartYear() + "</td>");
+                    out.println("<td>" + exams.get(i).getSemester().getDepartment().getAbbreviation() + "</td>");
                     out.println("</tr>");
                 }
              %>
