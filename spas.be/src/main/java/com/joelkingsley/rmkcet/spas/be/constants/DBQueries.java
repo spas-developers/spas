@@ -164,5 +164,6 @@ public class DBQueries {
 	public static final String ADD_USER = "INSERT INTO users(name,email,password,fk_departments_department_id,fk_user_types_user_type_id) VALUES(?,?,?,?,?)";
 	public static final String ADD_STUDENT = "INSERT INTO students(student_id, register_number, student_name, gender, is_hosteler, fk_batches_batch_id, fk_departments_department_id) values(?,?,?,?,?,?,?) ";
 	public static final String ADD_SUBJECT = "INSERT INTO subjects(subject_code, subject_name, credit) values(?,?,?)";
+	public static final String ADD_SEMESTER = "INSERT INTO semesters(semester_number, fk_batches_batch_id, fk_departments_department_id) values(?,?,?)";
 
 }

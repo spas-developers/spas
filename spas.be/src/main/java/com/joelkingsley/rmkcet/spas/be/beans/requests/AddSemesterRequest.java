@@ -3,7 +3,7 @@ package com.joelkingsley.rmkcet.spas.be.beans.requests;
 import java.io.Serializable;
 
 public class AddSemesterRequest implements Serializable {
-
+	
 	/**
 	 * 
 	 */
@@ -13,7 +13,7 @@ public class AddSemesterRequest implements Serializable {
 	int semesterNumber;
 	int batchID;
 	int departmentID;
-	
+
 	public AddSemesterRequest() {
 		super();
 	}
@@ -53,5 +53,6 @@ public class AddSemesterRequest implements Serializable {
 		return "AddSemesterRequest [semesterID=" + semesterID + ", semesterNumber=" + semesterNumber + ", batchID="
 				+ batchID + ", departmentID=" + departmentID + "]";
 	}
+
 	
 }
