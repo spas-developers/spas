@@ -26,6 +26,15 @@ public class AddExamRequest implements Serializable {
 		this.subjectID = subjectID;
 		this.semesterID = semesterID;
 	}
+	
+	
+
+	public AddExamRequest(int examTypeID, int subjectID, int semesterID) {
+		super();
+		this.examTypeID = examTypeID;
+		this.subjectID = subjectID;
+		this.semesterID = semesterID;
+	}
 
 	public int getExamID() {
 		return examID;

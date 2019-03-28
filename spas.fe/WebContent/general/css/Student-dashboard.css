@@ -1,13 +1,44 @@
-.student-table ,th,td{
+.student-table  th, .student-table  td{
+    text-align: center;
     border: 1px solid black;
     border-collapse: collapse;
 }
 
 .student-table{
     width:100%;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 .body-title{
     text-align:center;
     width:100%;
     font-size: 1.5em;
+}
+
+.search{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin: 10px;
+}
+
+form.search input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 30%;
+    background: #f1f1f1;
+}
+
+form.search button {
+    float: left;
+    width: 9%;
+    padding: 12px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
 }

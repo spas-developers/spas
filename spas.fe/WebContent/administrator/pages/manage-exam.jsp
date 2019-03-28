@@ -40,7 +40,7 @@
         <div class="courier bold">
             <a href="" class="menu-button">Manage</a>
             <div class="dropdown-content lt-drop">
-                
+
                 <a href="/spas.fe/manageBatch">Batch</a>
                 <a href="/spas.fe/manageDepartment">Department</a>
                 <a href="/spas.fe/manageSubject">Subject</a>
@@ -85,7 +85,8 @@
                     %>
         </table>
         <div class="w3-container">
-            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black add-button">Add
+            <button onclick="document.getElementById('id01').style.display='block'"
+                class="w3-button w3-black add-button">Add
                 Exam</button>
 
             <div id="id01" class="w3-modal">
@@ -93,7 +94,7 @@
                     <div class="w3-container">
                         <span onclick="document.getElementById('id01').style.display='none'"
                             class="w3-button w3-display-topright">&times;</span>
-                        <form class="centered">
+                        <form class="centered" action="manageExam" method="POST">
                             <table>
                                 <div class="body-title open-sans-condensed">
                                     Add Exam
@@ -101,22 +102,47 @@
                                 <table class="form-table">
                                     <tr>
                                         <td><span>Exam Type: </span></td>
-                                        <td><select>
+                                        <td><select name="examType">
+                                                <% 
+                                                    ArrayList<ExamType> examTypes = (ArrayList<ExamType>) request.getAttribute("examTypes");
+                                                    for(int i=0 ; i < examTypes.size() ; i++) {
+                                                        out.print("<option>");
+                                                        out.print(examTypes.get(i).getExamTypeID() + ":" + examTypes.get(i).getExamTypeName());
+                                                        out.print("</option>");
+                                                    }
+                                                %>
                                             </select></td>
                                     </tr>
                                     <tr>
                                         <td><span>Subject: </span></td>
-                                        <td><select>
+                                        <td><select name="subject">
+                                                <% 
+                                                    ArrayList<Subject> subjects = (ArrayList<Subject>) request.getAttribute("subjects");
+                                                    for(int i=0 ; i < subjects.size() ; i++) {
+                                                        out.print("<option>");
+                                                        out.print(subjects.get(i).getSubjectID() + ":" + subjects.get(i).getSubjectName());
+                                                        out.print("</option>");
+                                                    }
+                                                %>
                                             </select></td>
                                     </tr>
                                     <tr>
                                         <td><span>Semester: </span></td>
-                                        <td><select>
+                                        <td><select name="semester">
+                                                <% 
+                                                    ArrayList<Semester> semesters = (ArrayList<Semester>) request.getAttribute("semesters");
+                                                    for(int i=0 ; i < semesters.size() ; i++) {
+                                                        out.print("<option>");
+                                                        out.print(semesters.get(i).getSemesterID() + ":" + semesters.get(i).getSemesterNumber());
+                                                        out.print("</option>");
+                                                    }
+                                                %>
                                             </select></td>
                                     </tr>
                                 </table>
                                 <div class="centered">
-                                    <button class="w3-button w3-black add-button">Add Exam </button>
+                                    <button class="w3-button w3-black add-button" name="addExamButton">Add Exam
+                                    </button>
                                 </div>
                         </form>
                     </div>

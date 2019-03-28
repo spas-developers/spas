@@ -10,7 +10,6 @@ public class AddStudentRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	int studentID;
-	
 	BigInteger registerNumber; 
 	String studentName;
 	String gender;

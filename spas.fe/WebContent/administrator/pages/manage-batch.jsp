@@ -88,7 +88,7 @@
                     <div class="w3-container">
                         <span onclick="document.getElementById('id01').style.display='none'"
                             class="w3-button w3-display-topright">&times;</span>
-                        <form class="centered">
+                        <form class="centered" action="" method="POST">
                             <table>
                                 <div class="body-title open-sans-condensed">
                                     Add Batch
@@ -105,7 +105,7 @@
 
                                 </table>
                                 <div class="centered">
-                                    <button class="w3-button w3-black add-button">Add Batch</button>
+                                    <button class="w3-button w3-black add-button" name="add-batch-button" type="submit">Add Batch</button>
                                 </div>
                         </form>
                     </div>
