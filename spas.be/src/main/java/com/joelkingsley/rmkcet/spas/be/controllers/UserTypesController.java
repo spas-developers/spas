@@ -31,7 +31,7 @@ UserTypesDelegate userTypesDelegate;
 				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.USER_TYPES_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<UserType>> responseEntity = new ResponseEntity<ArrayList<UserType>>(userTypes, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<UserType>> responseEntity = new ResponseEntity<ArrayList<UserType>>(userTypes, HttpStatus.OK);
 				return responseEntity;
 			}
 		} catch (AppError appError) {

@@ -19,7 +19,9 @@
     border: 1px solid black;
     border-collapse: collapse;
     margin-top: 20px;
-    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
 }
 
 .list-table th, .list-table td {
@@ -31,3 +33,7 @@
     margin-top: 100px;
 }
 
+.add-button {
+    margin: 20px;
+    border: 1px solid black;
+}

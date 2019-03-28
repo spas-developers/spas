@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 
 import com.joelkingsley.rmkcet.spas.be.beans.ExamResult;
+import com.joelkingsley.rmkcet.spas.be.beans.requests.AddExamResultRequest;
 import com.joelkingsley.rmkcet.spas.be.daos.ExamResultsDAO;
 import com.joelkingsley.rmkcet.spas.be.utils.AppError;
 
@@ -28,6 +29,15 @@ ExamResultsDAO examResultsDAO;
 	public ArrayList<ExamResult> getAllExamResultsOfRegisterNumber(BigInteger registerNumber) throws AppError {
 		try {
 			return examResultsDAO.getAllExamResultsOfRegisterNumber(registerNumber);
+		} catch (AppError e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+
+	public AddExamResultRequest addExamResult(AddExamResultRequest addExamResultRequest) throws AppError {
+		try {
+			return examResultsDAO.addExamResult(addExamResultRequest);
 		} catch (AppError e) {
 			e.printStackTrace();
 			throw e;

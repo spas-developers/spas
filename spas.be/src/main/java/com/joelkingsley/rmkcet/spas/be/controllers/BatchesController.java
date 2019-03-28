@@ -31,7 +31,7 @@ BatchesDelegate batchesDelegate;
 				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.BATCHES_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<Batch>> responseEntity = new ResponseEntity<ArrayList<Batch>>(batches, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<Batch>> responseEntity = new ResponseEntity<ArrayList<Batch>>(batches, HttpStatus.OK);
 				return responseEntity;
 			}
 		} catch (AppError appError) {

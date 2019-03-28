@@ -154,11 +154,14 @@ public class DBQueries {
 			"       LEFT JOIN students \r\n" + 
 			"              ON ( exam_results.fk_students_student_id = students.student_id ) " +
 			"WHERE  students.register_number = ?";
-	public static final String ADD_BATCH = "INSERT INTO batches(batch_start_year) VALUES(?)"; 
 	
 	public static final String GET_SUBJECT = "SELECT subject_id, subject_code, subject_name, credit FROM subjects where subject_code LIKE ?";
+	
+	public static final String ADD_BATCH = "INSERT INTO batches(batch_start_year) VALUES(?)"; 
 	public static final String ADD_EXAM = "INSERT INTO exams(fk_exam_types_exam_type_id,fk_subjects_subject_id,fk_semesters_semester_id) VALUES(?,?,?)";
-	public static final String ADD_EXAMTYPE = "INSERT INTO examTypes(exam_Type_name, abbreviation) values(?,?)";
+	public static final String ADD_EXAM_RESULT = "INSERT INTO exam_results(fk_exams_exam_id,fk_students_student_id,marks,grade) VALUES(?,?,?,?)";
+	public static final String ADD_EXAMTYPE = "INSERT INTO exam_types(exam_type_name, abbreviation) values(?,?)";
+	public static final String ADD_USER = "INSERT INTO users(name,email,password,fk_departments_department_id,fk_user_types_user_type_id) VALUES(?,?,?,?,?)";
 	public static final String ADD_STUDENT = "INSERT INTO students(student_id, register_number, student_name, gender, is_hosteler, fk_batches_batch_id, fk_departments_department_id) values(?,?,?,?,?,?,?) ";
 	public static final String ADD_SUBJECT = "INSERT INTO subjects(subject_code, subject_name, credit) values(?,?,?)";
 	public static final String ADD_SEMESTER = "INSERT INTO semesters(semester_number, fk_batches_batch_id, fk_departments_department_id) values(?,?,?)";

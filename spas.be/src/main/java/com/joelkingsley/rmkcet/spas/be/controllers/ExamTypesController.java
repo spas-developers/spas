@@ -35,7 +35,7 @@ ResponseEntity<?> getAllExamTypes() {
 			ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.EXAM_TYPES_NOT_FOUND, HttpStatus.NOT_FOUND);
 			return responseEntity;
 		} else {
-			ResponseEntity<ArrayList<ExamType>> responseEntity = new ResponseEntity<ArrayList<ExamType>>(examTypes, HttpStatus.FOUND);
+			ResponseEntity<ArrayList<ExamType>> responseEntity = new ResponseEntity<ArrayList<ExamType>>(examTypes, HttpStatus.OK);
 			return responseEntity;
 		}
 	} catch (AppError appError) {

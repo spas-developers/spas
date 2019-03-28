@@ -1,11 +1,16 @@
 package com.joelkingsley.rmkcet.spas.fe.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.joelkingsley.rmkcet.spas.fe.beans.ExamType;
+import com.joelkingsley.rmkcet.spas.fe.services.ExamTypesService;
 
 /**
  * Servlet implementation class ManageExamTypeServlet
@@ -25,7 +30,10 @@ public class ManageExamTypeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/administrator/pages/manage-exam-type.html").forward(request, response);
+		ExamTypesService examTypesService = new ExamTypesService();
+		ArrayList<ExamType> examTypes = examTypesService.getAllExamTypes();
+		request.setAttribute("examTypes", examTypes);
+		request.getRequestDispatcher("/administrator/pages/manage-exam-type.jsp").forward(request, response);
 	}
 
 	/**

@@ -34,7 +34,7 @@ public class UsersController {
 				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.USERS_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<User>> responseEntity = new ResponseEntity<ArrayList<User>>(users, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<User>> responseEntity = new ResponseEntity<ArrayList<User>>(users, HttpStatus.OK);
 				return responseEntity;
 			}
 		} catch (AppError appError) {

@@ -33,7 +33,7 @@ public class StudentsController {
 				ResponseEntity<String> responseEntity = new ResponseEntity<String>(ErrorConstants.STUDENTS_NOT_FOUND, HttpStatus.NOT_FOUND);
 				return responseEntity;
 			} else {
-				ResponseEntity<ArrayList<Student>> responseEntity = new ResponseEntity<ArrayList<Student>>(students, HttpStatus.FOUND);
+				ResponseEntity<ArrayList<Student>> responseEntity = new ResponseEntity<ArrayList<Student>>(students, HttpStatus.OK);
 				return responseEntity;
 			}
 		} catch (AppError appError) {

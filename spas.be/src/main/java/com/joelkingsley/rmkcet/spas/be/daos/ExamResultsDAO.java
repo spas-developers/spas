@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.joelkingsley.rmkcet.spas.be.beans.Batch;
@@ -15,6 +17,7 @@ import com.joelkingsley.rmkcet.spas.be.beans.ExamType;
 import com.joelkingsley.rmkcet.spas.be.beans.Semester;
 import com.joelkingsley.rmkcet.spas.be.beans.Student;
 import com.joelkingsley.rmkcet.spas.be.beans.Subject;
+import com.joelkingsley.rmkcet.spas.be.beans.requests.AddExamResultRequest;
 import com.joelkingsley.rmkcet.spas.be.constants.DBConstants;
 import com.joelkingsley.rmkcet.spas.be.constants.DBQueries;
 import com.joelkingsley.rmkcet.spas.be.constants.ErrorConstants;
@@ -68,7 +71,7 @@ public class ExamResultsDAO {
 				
 				Student student = new Student(
 						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_ID)),
-						BigInteger.valueOf(resultSet.getLong(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_ID))),
+						BigInteger.valueOf(resultSet.getLong(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_REGISTER_NUMBER))),
 						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_NAME)),
 						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_GENDER)),
 						isHosteler,
@@ -159,6 +162,43 @@ public class ExamResultsDAO {
 		} catch (SQLException sqlException) {
 			sqlException.printStackTrace();
 			throw new AppError(ErrorConstants.SERVER_ERROR);
+		}
+	}
+
+	public AddExamResultRequest addExamResult(AddExamResultRequest addExamResultRequest) throws AppError {
+		Connection connection = DBUtils.getConnection();
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.ADD_EXAM_RESULT, Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setInt(1,  addExamResultRequest.getExamID());
+			preparedStatement.setInt(2, addExamResultRequest.getStudentID());
+			preparedStatement.setInt(3, addExamResultRequest.getMarks());
+			preparedStatement.setString(4, addExamResultRequest.getGrade());
+			
+			int affectedRows = preparedStatement.executeUpdate();
+
+	        if (affectedRows == 0) {
+	            throw new AppError(ErrorConstants.EXAM_RESULT_NOT_CREATED);
+	        }
+
+	        try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+	            if (generatedKeys.next()) {
+	                addExamResultRequest.setExamResultID(generatedKeys.getInt(1));
+	                return addExamResultRequest;
+	            }
+	            else {
+	                throw new AppError(ErrorConstants.EXAM_RESULT_ID_NOT_OBTAINED);
+	            }
+	        }
+			
+		} catch (SQLIntegrityConstraintViolationException exception) {
+			exception.printStackTrace();
+			throw new AppError(ErrorConstants.DUPLICATE_ENTRY, exception);
+		} catch (SQLException sqlException) {
+			sqlException.printStackTrace();
+			throw new AppError(ErrorConstants.SERVER_ERROR, sqlException);
+		} catch (AppError appError) {
+			throw appError;
 		}
 	}
 	

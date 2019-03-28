@@ -2,14 +2,14 @@
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.courier {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .italics {
     font-style: italic;
 }
 
 .bold {
     font-weight: bold;
-}
-
-* {
-    /* border: 1px solid black; */
 }

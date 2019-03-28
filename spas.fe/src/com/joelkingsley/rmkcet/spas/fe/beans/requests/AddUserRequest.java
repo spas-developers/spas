@@ -1,4 +1,4 @@
-package com.joelkingsley.rmkcet.spas.be.beans.requests;
+package com.joelkingsley.rmkcet.spas.fe.beans.requests;
 
 public class AddUserRequest {
 

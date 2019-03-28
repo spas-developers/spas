@@ -1,12 +1,9 @@
-package com.joelkingsley.rmkcet.spas.be.beans.requests;
+package com.joelkingsley.rmkcet.spas.fe.beans.requests;
 
 import java.io.Serializable;
 
-import com.joelkingsley.rmkcet.spas.be.beans.Batch;
-import com.joelkingsley.rmkcet.spas.be.beans.Department;
-
 public class AddSemesterRequest implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -57,14 +54,4 @@ public class AddSemesterRequest implements Serializable {
 				+ batchID + ", departmentID=" + departmentID + "]";
 	}
 	
-<<<<<<< HEAD
-	
-	}
-
-	
-	
-
-
-=======
 }
->>>>>>> b629fe02f8b5266802828e844411afc27875b164
