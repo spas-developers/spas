@@ -1,3 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import ="java.util.ArrayList"%>
+<%@ page import ="com.joelkingsley.rmkcet.spas.fe.beans.ExamResult"%>
+<%@ page import ="com.joelkingsley.rmkcet.spas.fe.beans.Exam"%>
+<%@ page import ="com.joelkingsley.rmkcet.spas.fe.beans.Student"%>
+<%@ page import ="com.joelkingsley.rmkcet.spas.fe.beans.Batch"%>
+<%@ page import ="com.joelkingsley.rmkcet.spas.fe.beans.Department"%>
+<%@ page import ="com.joelkingsley.rmkcet.spas.fe.beans.ExamType"%>
+<%@ page import ="com.joelkingsley.rmkcet.spas.fe.beans.Subject"%>
+<%@ page import ="com.joelkingsley.rmkcet.spas.fe.beans.Semester"%>
+
 <html>
 
 <head>
@@ -58,6 +69,17 @@
                 <th>Batch</th>
                 <th>Department</th>
             </tr>
+            <% 
+                ArrayList<Exam> exams = (ArrayList<Exam>) request.getAttribute("exams");
+                for(int i=0; i < exams.size(); i++) {
+                    out.println("<tr>");
+                    out.println("<td>" + exams.get(i).getExamID() + "</td>");
+                    out.println("<td>" + exams.get(i).getExamType().getExamTypeNMame + "</td>");
+                    out.println("<td>" + examss.get(i).getSemester().getBatch().getBatchStartYear() + "</td>");
+                    out.println("<td>" + examss.get(i).getSemester,getDepartment().getAbbreviation() + "</td>");
+                    out.println("</tr>");
+                }
+             %>
         </table>
     </section>
     </body>
