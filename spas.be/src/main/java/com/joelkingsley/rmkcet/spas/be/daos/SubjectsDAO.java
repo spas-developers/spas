@@ -85,7 +85,7 @@ public class SubjectsDAO {
 			int affectedRows = preparedStatement.executeUpdate();
 
 	        if (affectedRows == 0) {
-	            throw new AppError(ErrorConstants.SUBJECT_NOT_CREATED);
+	            throw new AppError(ErrorConstants.USER_NOT_CREATED);
 	        }
 
 	        try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
@@ -94,7 +94,7 @@ public class SubjectsDAO {
 	                return subject;
 	            }
 	            else {
-	                throw new AppError(ErrorConstants.BATCH_ID_NOT_OBTAINED);
+	                throw new AppError(ErrorConstants.USER_ID_NOT_OBTAINED);
 	            }
 	        }
 			

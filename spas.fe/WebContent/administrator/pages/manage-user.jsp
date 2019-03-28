@@ -105,6 +105,14 @@
                                     <tr>
                                         <td><span>Department:</span></td>
                                         <td><select>
+                                                <% 
+                                                ArrayList<Department> departments = (ArrayList<Department>) request.getAttribute("departments");
+                                                for(int i=0 ; i < departments.size() ; i++) {
+                                                    out.print("<option>");
+                                                    out.print(departments.get(i).getDepartmentID() + ":" + departments.get(i).getAbbreviation());
+                                                    out.print("</option>");
+                                                }
+                                            %>
                                             </select></td>
                                     </tr>
                                     <tr>

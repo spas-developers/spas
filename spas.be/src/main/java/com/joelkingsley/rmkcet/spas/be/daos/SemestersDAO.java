@@ -71,7 +71,7 @@ public class SemestersDAO {
 			int affectedRows = preparedStatement.executeUpdate();
 
 	        if (affectedRows == 0) {
-	            throw new AppError(ErrorConstants.EXAM_NOT_CREATED);
+	            throw new AppError(ErrorConstants.SEMESTER_NOT_CREATED);
 	        }
 
 	        try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
@@ -80,7 +80,7 @@ public class SemestersDAO {
 	                return addSemesterRequest;
 	            }
 	            else {
-	                throw new AppError(ErrorConstants.EXAM_ID_NOT_OBTAINED);
+	                throw new AppError(ErrorConstants.SEMESTER_ID_NOT_OBTAINED);
 	            }
 	        }
 			

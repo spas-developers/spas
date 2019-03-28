@@ -34,4 +34,11 @@ public class ErrorConstants {
 	public static final String EXAM_ID_NOT_OBTAINED = "Creating exam failed, no ID obtained.";
 	public static final String EXAM_RESULT_ID_NOT_OBTAINED = "Creating exam result failed, no ID obtained.";
 	public static final String USER_ID_NOT_OBTAINED = "User id failed, no ID obtained";
+	public static final String DEPARTMENT_NOT_CREATED = "Department Created";
+	public static final String SEMESTER_NOT_CREATED = "Semester not created";
+	public static final String SEMESTER_ID_NOT_OBTAINED = "SemesterID not obtained";
+	public static final String EXAM_TYPE_ID_NOT_OBTAINED = "ExamType ID Not Obtained";
+	public static final String STUDENT_NOT_CREATED = "Student not created";
+	public static final String STUDENT_ID_NOT_OBTAINED = "ExamTypeID Not Obtained";
+	public static final String SUBJECT_ID_NOT_OBTAINED = "SubjectID not Obtained";
 }

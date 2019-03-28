@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.joelkingsley.rmkcet.spas.be.beans.Department;
@@ -39,6 +41,20 @@ public class DepartmentsController {
 			appError.getException().printStackTrace();
 			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 			return responseEntity;
+		}
+	}
+	
+	@PostMapping("/departments")
+	ResponseEntity<?> addDepartment(@RequestBody Department department) {
+		 try { 
+			 Department addedDepartment = departmentsDelegate.addDepartment(department); 
+			 ResponseEntity<Department> responseEntity = new ResponseEntity<Department>(addedDepartment, HttpStatus.OK); 
+			 return responseEntity;
+	
+		} catch (AppError appError) { 
+			appError.getException().printStackTrace(); 
+			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR); 
+			return responseEntity; 
 		}
 	}
 }

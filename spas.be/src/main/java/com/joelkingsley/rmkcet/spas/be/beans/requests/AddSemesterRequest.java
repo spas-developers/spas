@@ -53,6 +53,7 @@ public class AddSemesterRequest implements Serializable {
 		return "AddSemesterRequest [semesterID=" + semesterID + ", semesterNumber=" + semesterNumber + ", batchID="
 				+ batchID + ", departmentID=" + departmentID + "]";
 	}
-
+	
 	
 }
+
