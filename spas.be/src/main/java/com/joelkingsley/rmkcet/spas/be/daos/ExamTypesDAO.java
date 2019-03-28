@@ -59,7 +59,7 @@ public class ExamTypesDAO {
 	                return examType;
 	            }
 	            else {
-	                throw new AppError(ErrorConstants.BATCH_ID_NOT_OBTAINED);
+	                throw new AppError(ErrorConstants.EXAM_TYPE_ID_NOT_OBTAINED);
 	            }
 	        }
 			

@@ -23,5 +23,15 @@ public class DepartmentsDelegate {
 			throw e;
 		}
 	}
+
+	public Department addDepartment(Department department) throws AppError {
+		try {
+			return departmentsDAO.addDepartment(department);
+		} catch (AppError e) {
+			e.printStackTrace();
+			throw e;
+		}
+	};
+	}
 	
-}
+
