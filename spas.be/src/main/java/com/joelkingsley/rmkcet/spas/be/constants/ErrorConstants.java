@@ -28,6 +28,7 @@ public class ErrorConstants {
 	public static final String EXAM_NOT_CREATED = "Exam not Created";
 	public static final String EXAM_RESULT_NOT_CREATED = "Exam Result not Created";
 	public static final String EXAMTYPE_NOT_CREATED = "ExamTypes not Created";
+	public static final String SUBJECT_NOT_CREATED = "Subject not Created";
 	
 	public static final String BATCH_ID_NOT_OBTAINED = "Creating batch failed, no ID obtained.";
 	public static final String EXAM_ID_NOT_OBTAINED = "Creating exam failed, no ID obtained.";

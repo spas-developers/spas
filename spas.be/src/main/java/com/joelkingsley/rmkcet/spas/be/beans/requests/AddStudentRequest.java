@@ -1,17 +1,27 @@
 package com.joelkingsley.rmkcet.spas.be.beans.requests;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
-public class AddStudentRequest {
+public class AddStudentRequest implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	int studentID;
+	
 	BigInteger registerNumber; 
 	String studentName;
 	String gender;
 	boolean isHosteler;
 	int batchID;
 	int departmentID;
-	
+
+	public AddStudentRequest() {
+		super();
+	}
+
 	public AddStudentRequest(int studentID, BigInteger registerNumber, String studentName, String gender,
 			boolean isHosteler, int batchID, int departmentID) {
 		super();
@@ -22,10 +32,6 @@ public class AddStudentRequest {
 		this.isHosteler = isHosteler;
 		this.batchID = batchID;
 		this.departmentID = departmentID;
-	}
-
-	public AddStudentRequest() {
-		super();
 	}
 
 	public int getStudentID() {
@@ -90,7 +96,5 @@ public class AddStudentRequest {
 				+ studentName + ", gender=" + gender + ", isHosteler=" + isHosteler + ", batchID=" + batchID
 				+ ", departmentID=" + departmentID + "]";
 	}
-	
-	
 	
 }

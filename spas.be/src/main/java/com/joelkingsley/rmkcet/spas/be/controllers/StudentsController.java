@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.joelkingsley.rmkcet.spas.be.beans.Student;
+import com.joelkingsley.rmkcet.spas.be.beans.requests.AddStudentRequest;
 import com.joelkingsley.rmkcet.spas.be.constants.ErrorConstants;
 import com.joelkingsley.rmkcet.spas.be.delegates.StudentsDelegate;
 import com.joelkingsley.rmkcet.spas.be.utils.AppError;
@@ -40,4 +43,18 @@ public class StudentsController {
 		}
 	}
 
+@PostMapping("/students")
+ResponseEntity<?> addStudent(@RequestBody AddStudentRequest addStudentRequest) {
+	 try { 
+		 AddStudentRequest addedStudent = studentsDelegate.addStudent(addStudentRequest); 
+		 ResponseEntity<AddStudentRequest> responseEntity = new ResponseEntity<AddStudentRequest>(addedStudent, HttpStatus.OK); 
+		 return responseEntity;
+
+	} catch (AppError appError) { 
+		appError.getException().printStackTrace(); 
+		ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR); 
+		return responseEntity; 
+	}
 }
+	}
+

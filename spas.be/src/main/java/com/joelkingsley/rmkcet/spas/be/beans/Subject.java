@@ -58,5 +58,10 @@ public class Subject implements Serializable {
 		return "Subject [subjectID=" + subjectID + ", subjectCode=" + subjectCode + ", subjectName=" + subjectName
 				+ ", credit=" + credit + "]";
 	}
+
+	public Subject() {
+		super();
+	}
+	
 	
 }
