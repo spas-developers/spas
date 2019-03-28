@@ -110,7 +110,10 @@
                                                     ArrayList<Exam> exams = (ArrayList<Exam>) request.getAttribute("exams");
                                                     for(int i=0 ; i < exams.size() ; i++) {
                                                         out.print("<option>");
-                                                        out.print(exams.get(i).getExamID());
+                                                        out.print(exams.get(i).getExamID()+":"+ exams.get(i).getExamType().getExamTypeName());
+                                                        out.print("("+"Semester "+exams.get(i).getSemester().getSemesterNumber()+")");
+                                                        out.print("("+exams.get(i).getSemester().getBatch().getBatchStartYear()+")");
+                                                        out.print("("+exams.get(i).getSemester().getDepartment().getDepartmentName()+")");
                                                         out.print("</option>");
                                                     }
                                                  %>

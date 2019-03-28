@@ -106,15 +106,27 @@
                                     <tr>
                                         <td><span>Batch: </span></td>
                                         <td><select>
+                                                <% 
+                                                ArrayList<Batch> batches = (ArrayList<Batch>) request.getAttribute("batches");
+                                                for(int i=0 ; i < batches.size() ; i++) {
+                                                    out.print("<option>");
+                                                    out.print(batches.get(i).getBatchID() + ":" + batches.get(i).getBatchStartYear());
+                                                    out.print("</option>");
+                                                }
+                                            %>
                                             </select></td>
                                     </tr>
                                     <tr>
                                         <td> <span>Department:</span></td>
                                         <td><select>
-                                                <option>CSE</option>
-                                                <option>EEE</option>
-                                                <option>ECE</option>
-                                                <option>MECH</option>
+                                                <% 
+                                                ArrayList<Department> departments = (ArrayList<Department>) request.getAttribute("departments");
+                                                for(int i=0 ; i < departments.size() ; i++) {
+                                                    out.print("<option>");
+                                                    out.print(departments.get(i).getDepartmentID() + ":" + departments.get(i).getAbbreviation());
+                                                    out.print("</option>");
+                                                }
+                                            %>
                                             </select></td>
                                     </tr>
                                 </table>

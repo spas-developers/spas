@@ -57,14 +57,11 @@ public class AddSemesterRequest implements Serializable {
 				+ batchID + ", departmentID=" + departmentID + "]";
 	}
 	
-<<<<<<< HEAD
 	
-	}
-
-	
-	
-
-
-=======
 }
->>>>>>> b629fe02f8b5266802828e844411afc27875b164
+
+	
+	
+
+
+
