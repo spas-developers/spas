@@ -71,7 +71,7 @@ public class ExamResultsDAO {
 				
 				Student student = new Student(
 						resultSet.getInt(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_ID)),
-						BigInteger.valueOf(resultSet.getLong(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_ID))),
+						BigInteger.valueOf(resultSet.getLong(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_REGISTER_NUMBER))),
 						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_STUDENT_NAME)),
 						resultSet.getString(String.format("%s.%s", DBConstants.TABLE_STUDENTS, DBConstants.COL_STUDENTS_GENDER)),
 						isHosteler,

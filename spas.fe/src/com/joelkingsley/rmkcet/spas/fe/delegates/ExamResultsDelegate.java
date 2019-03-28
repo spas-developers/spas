@@ -13,6 +13,25 @@ import com.joelkingsley.rmkcet.spas.fe.utils.RestCaller;
 
 public class ExamResultsDelegate {
 
+	public ArrayList<ExamResult> getAllExamResults() {
+		ArrayList<ExamResult> examResults = null;
+		RestCaller restCaller = new RestCaller();
+		
+		String json = null;
+		try {
+			json = restCaller.doGet("http://localhost:8080/examResults/");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+		Gson gson = new Gson();
+		Type type = new TypeToken<ArrayList<ExamResult>>() {}.getType();
+		System.out.println(json);
+		examResults = gson.fromJson(json, type);
+		
+		return examResults;
+	}
+	
 	public ArrayList<ExamResult> getAllExamResultsOfRegisterNumber(BigInteger registerNumber) {
 		ArrayList<ExamResult> examResults = null;
 		RestCaller restCaller = new RestCaller();

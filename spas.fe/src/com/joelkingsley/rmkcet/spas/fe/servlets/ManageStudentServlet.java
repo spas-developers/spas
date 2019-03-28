@@ -1,11 +1,16 @@
 package com.joelkingsley.rmkcet.spas.fe.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.joelkingsley.rmkcet.spas.fe.beans.Student;
+import com.joelkingsley.rmkcet.spas.fe.services.StudentsService;
 
 /**
  * Servlet implementation class ManageStudentServlet
@@ -25,7 +30,10 @@ public class ManageStudentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/administrator/pages/manage-student.html").forward(request, response);
+		StudentsService studentsService = new StudentsService();
+		ArrayList<Student> students = studentsService.getAllStudents();
+		request.setAttribute("students", students);
+		request.getRequestDispatcher("/administrator/pages/manage-student.jsp").forward(request, response);
 	}
 
 	/**

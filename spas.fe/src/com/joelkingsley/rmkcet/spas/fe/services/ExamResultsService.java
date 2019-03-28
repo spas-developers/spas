@@ -16,6 +16,10 @@ public class ExamResultsService {
 		examResultsDelegate = new ExamResultsDelegate();
 	}
 
+	public ArrayList<ExamResult> getAllExamResults() {
+		return examResultsDelegate.getAllExamResults();
+	}
+	
 	public ArrayList<ExamResult> getAllExamResultsOfRegisterNumber(BigInteger registerNumber) {
 		return examResultsDelegate.getAllExamResultsOfRegisterNumber(registerNumber);
 	}
