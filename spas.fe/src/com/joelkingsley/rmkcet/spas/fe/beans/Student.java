@@ -54,10 +54,10 @@ public class Student implements Serializable {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public boolean isHosteler() {
+	public boolean getIsHosteler() {
 		return isHosteler;
 	}
-	public void setHosteler(boolean isHosteler) {
+	public void setIsHosteler(boolean isHosteler) {
 		this.isHosteler = isHosteler;
 	}
 	public Batch getBatch() {

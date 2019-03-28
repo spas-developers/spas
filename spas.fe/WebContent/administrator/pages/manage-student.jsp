@@ -30,15 +30,15 @@
     </header>
     <section class="navbar">
         <div class="courier bold">
-            <a href="" class="active menu-button">Dashboard</a>
+            <a href="" class="menu-button">Dashboard</a>
             <div class="dropdown-content dashboard-drop">
-                <a href="">Students</a>
-                <a href="">Exams</a>
-                <a href="">Exam Results</a>
+                <a href="/spas.fe/studentDashboard">Students</a>
+                <a href="/spas.fe/examDashboard">Exams</a>
+                <a href="/spas.fe/examResultDashboard">Exam Results</a>
             </div>
         </div>
         <div class="courier bold">
-            <a href="" class="menu-button">Manage</a>
+            <a href="" class="active menu-button">Manage</a>
             <div class="dropdown-content lt-drop">
                 <a href="/spas.fe/manageBatch">Batch</a>
                 <a href="/spas.fe/manageDepartment">Department</a>
@@ -69,19 +69,19 @@
                 <th>Batch</th>
                 <th>Department</th>
             </tr>
-            <% 
-                ArrayList<Student> students = (ArrayList<Student>) request.getAttribute("students");
-                    for (int i=0;i < students.size();i++) {
-                        out.println("<tr>");
-                        out.println("<td>" + students.get(i).getStudentID() + "</td>");
-                        out.println("<td>" + students.get(i).getRegisterNumber() + "</td>");
-                        out.println("<td>" + students.get(i).getStudentName() + "</td>");
-                        out.println("<td>" + students.get(i).getGender() + "</td>");
-                        out.println("<td>" + students.get(i).isHosteler() + "</td>");
-                        out.println("<td>" + students.get(i).getBatch().getBatchStartYear() + "</td>");
-                        out.println("<td>" + students.get(i).getDepartment().getAbbreviation() + "</td>");
-                        out.println("</tr>");
-                    }
+            <%
+            	ArrayList<Student> students = (ArrayList<Student>) request.getAttribute("students");
+                                            for (int i=0;i < students.size();i++) {
+                                                out.println("<tr>");
+                                                out.println("<td>" + students.get(i).getStudentID() + "</td>");
+                                                out.println("<td>" + students.get(i).getRegisterNumber() + "</td>");
+                                                out.println("<td>" + students.get(i).getStudentName() + "</td>");
+                                                out.println("<td>" + students.get(i).getGender() + "</td>");
+                                                out.println("<td>" + students.get(i).getIsHosteler() + "</td>");
+                                                out.println("<td>" + students.get(i).getBatch().getBatchStartYear() + "</td>");
+                                                out.println("<td>" + students.get(i).getDepartment().getAbbreviation() + "</td>");
+                                                out.println("</tr>");
+                                            }
             %>
         </table>
 

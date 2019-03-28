@@ -15,7 +15,7 @@ header {
 }
 
 #ztech-logo {
-    width: 300px;
+    width: 150px;
     height: auto;
     align-self: center;
     display: inline-block;
@@ -24,6 +24,7 @@ header {
 
 #ztech-logo img {
     height: auto;
+    width: 150px;
 }
 
 .drop {

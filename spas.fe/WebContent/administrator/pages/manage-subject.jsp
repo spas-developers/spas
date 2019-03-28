@@ -30,15 +30,15 @@
     </header>
     <section class="navbar">
         <div class="courier bold">
-            <a href="" class="active menu-button">Dashboard</a>
+            <a href="" class="menu-button">Dashboard</a>
             <div class="dropdown-content dashboard-drop">
-                <a href="">Students</a>
-                <a href="">Exams</a>
-                <a href="">Exam Results</a>
+                <a href="/spas.fe/studentDashboard">Students</a>
+                <a href="/spas.fe/examDashboard">Exams</a>
+                <a href="/spas.fe/examResultDashboard">Exam Results</a>
             </div>
         </div>
         <div class="courier bold">
-            <a href="" class="menu-button">Manage</a>
+            <a href="" class="active menu-button">Manage</a>
             <div class="dropdown-content lt-drop">
                 <a href="/spas.fe/manageBatch">Batch</a>
                 <a href="/spas.fe/manageDepartment">Department</a>
@@ -66,15 +66,17 @@
                 <th>Credit</th>
             </tr>
             <% 
-                ArrayList<Subject> subjects = (ArrayList<Subject>) request.getAttribute("subjects");
-                    for (int i=0;i < subjects.size();i++) {
-                        out.println("<tr>");
-                        out.println("<td>" + subjects.get(i).getSubjectID() + "</td>");
-                        out.println("<td>" + subjects.get(i).getSubjectCode() + "</td>");
-                        out.println("<td>" + subjects.get(i).getSubjectName() + "</td>");
-                        out.println("<td>" + subjects.get(i).getCredit() + "</td>");
-                        out.println("</tr>");
-                    }
+                if (request.getAttribute("subjects") != null) {
+                    ArrayList<Subject> subjects = (ArrayList<Subject>) request.getAttribute("subjects");
+                        for (int i=0;i < subjects.size();i++) {
+                            out.println("<tr>");
+                            out.println("<td>" + subjects.get(i).getSubjectID() + "</td>");
+                            out.println("<td>" + subjects.get(i).getSubjectCode() + "</td>");
+                            out.println("<td>" + subjects.get(i).getSubjectName() + "</td>");
+                            out.println("<td>" + subjects.get(i).getCredit() + "</td>");
+                            out.println("</tr>");
+                        }
+                }
             %>
         </table>
 

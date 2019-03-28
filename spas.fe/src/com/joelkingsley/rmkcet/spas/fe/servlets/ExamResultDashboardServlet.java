@@ -15,16 +15,16 @@ import com.joelkingsley.rmkcet.spas.fe.services.ExamResultsService;
 import com.joelkingsley.rmkcet.spas.fe.services.StudentsService;
 
 /**
- * Servlet implementation class ExamResultServlet
+ * Servlet implementation class ExamResultDashboardServlet
  */
-@WebServlet("/ExamResultServlet")
-public class ExamResultServlet extends HttpServlet {
+@WebServlet("/examResultDashboard")
+public class ExamResultDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ExamResultServlet() {
+    public ExamResultDashboardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,7 +36,7 @@ public class ExamResultServlet extends HttpServlet {
 		ExamResultsService examResultsService = new ExamResultsService();
 		ArrayList<ExamResult> examResults = examResultsService.getAllExamResults();
 		request.setAttribute("examResults", examResults);
-		request.getRequestDispatcher("/general/pages/student-dashboard.jsp").forward(request, response);
+		request.getRequestDispatcher("/general/pages/exam-result-dashboard.jsp").forward(request, response);
 	}
 
 	/**

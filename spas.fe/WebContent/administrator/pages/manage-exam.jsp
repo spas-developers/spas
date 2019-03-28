@@ -30,15 +30,15 @@
     </header>
     <section class="navbar">
         <div class="courier bold">
-            <a href="" class="active menu-button">Dashboard</a>
+            <a href="" class="menu-button">Dashboard</a>
             <div class="dropdown-content dashboard-drop">
-                <a href="">Students</a>
-                <a href="">Exams</a>
-                <a href="">Exam Results</a>
+                <a href="/spas.fe/studentDashboard">Students</a>
+                <a href="/spas.fe/examDashboard">Exams</a>
+                <a href="/spas.fe/examResultDashboard">Exam Results</a>
             </div>
         </div>
         <div class="courier bold">
-            <a href="" class="menu-button">Manage</a>
+            <a href="" class="active menu-button">Manage</a>
             <div class="dropdown-content lt-drop">
 
                 <a href="/spas.fe/manageBatch">Batch</a>
@@ -69,19 +69,21 @@
                 <th>Department</th>
             </tr>
             <% 
+                    if (request.getAttribute("exams") != null) {
                         ArrayList<Exam> exams = (ArrayList<Exam>) request.getAttribute("exams");
-                        for (int i=0;i < exams.size();i++) {
-                            int batchStartYear = exams.get(i).getSemester().getBatch().getBatchStartYear();
-                            int batchEndYear = batchStartYear + 4;
-                            out.println("<tr>");
-                            out.println("<td>" + exams.get(i).getExamID() + "</td>");
-                            out.println("<td>" + exams.get(i).getExamType().getExamTypeName() + "</td>");
-                            out.println("<td>" + exams.get(i).getSubject().getSubjectCode() + "</td>");
-                            out.println("<td>" + exams.get(i).getSubject().getSubjectName() + "</td>");
-                            out.println("<td>" + batchStartYear + "-" + batchEndYear + "</td>");
-                            out.println("<td>" + exams.get(i).getSemester().getDepartment().getAbbreviation() + "</td>");
-                            out.println("</tr>");
-                        }
+                                for (int i=0;i < exams.size();i++) {
+                                    int batchStartYear = exams.get(i).getSemester().getBatch().getBatchStartYear();
+                                    int batchEndYear = batchStartYear + 4;
+                                    out.println("<tr>");
+                                    out.println("<td>" + exams.get(i).getExamID() + "</td>");
+                                    out.println("<td>" + exams.get(i).getExamType().getExamTypeName() + "</td>");
+                                    out.println("<td>" + exams.get(i).getSubject().getSubjectCode() + "</td>");
+                                    out.println("<td>" + exams.get(i).getSubject().getSubjectName() + "</td>");
+                                    out.println("<td>" + batchStartYear + "-" + batchEndYear + "</td>");
+                                    out.println("<td>" + exams.get(i).getSemester().getDepartment().getAbbreviation() + "</td>");
+                                    out.println("</tr>");
+                                }
+                    }
                     %>
         </table>
         <div class="w3-container">
@@ -117,11 +119,13 @@
                                         <td><span>Subject: </span></td>
                                         <td><select name="subject">
                                                 <% 
-                                                    ArrayList<Subject> subjects = (ArrayList<Subject>) request.getAttribute("subjects");
-                                                    for(int i=0 ; i < subjects.size() ; i++) {
-                                                        out.print("<option>");
-                                                        out.print(subjects.get(i).getSubjectID() + ":" + subjects.get(i).getSubjectName());
-                                                        out.print("</option>");
+                                                    if (request.getAttribute("subjects") != null) {
+                                                        ArrayList<Subject> subjects = (ArrayList<Subject>) request.getAttribute("subjects");
+                                                        for(int i=0 ; i < subjects.size() ; i++) {
+                                                            out.print("<option>");
+                                                            out.print(subjects.get(i).getSubjectID() + ":" + subjects.get(i).getSubjectName());
+                                                            out.print("</option>");
+                                                        }
                                                     }
                                                 %>
                                             </select></td>

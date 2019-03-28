@@ -30,15 +30,15 @@
     </header>
     <section class="navbar">
         <div class="courier bold">
-            <a href="" class="active menu-button">Dashboard</a>
+            <a href="" class="menu-button">Dashboard</a>
             <div class="dropdown-content dashboard-drop">
-                <a href="">Students</a>
-                <a href="">Exams</a>
-                <a href="">Exam Results</a>
+                <a href="/spas.fe/studentDashboard">Students</a>
+                <a href="/spas.fe/examDashboard">Exams</a>
+                <a href="/spas.fe/examResultDashboard">Exam Results</a>
             </div>
         </div>
         <div class="courier bold">
-            <a href="" class="menu-button">Manage</a>
+            <a href="" class="active menu-button">Manage</a>
             <div class="dropdown-content lt-drop">
                 <a href="/spas.fe/manageBatch">Batch</a>
                 <a href="/spas.fe/manageDepartment">Department</a>
@@ -67,16 +67,18 @@
                 <th>Department</th>
             </tr>
             <% 
+                    if (request.getAttribute("semesters") != null) {
                         ArrayList<Semester> semesters = (ArrayList<Semester>) request.getAttribute("semesters");
-                            for (int i=0;i < semesters.size();i++) {
-                                out.println("<tr>");
-                                out.println("<td>" + semesters.get(i).getSemesterID() + "</td>");
-                                out.println("<td>" + semesters.get(i).getSemesterNumber() + "</td>");
-                                out.println("<td>" + semesters.get(i).getBatch().getBatchStartYear() + "</td>");
-                                out.println("<td>" + semesters.get(i).getDepartment().getAbbreviation() + "</td>");
-                                out.println("</tr>");
-                            }
-                    %>
+                                for (int i=0;i < semesters.size();i++) {
+                                    out.println("<tr>");
+                                    out.println("<td>" + semesters.get(i).getSemesterID() + "</td>");
+                                    out.println("<td>" + semesters.get(i).getSemesterNumber() + "</td>");
+                                    out.println("<td>" + semesters.get(i).getBatch().getBatchStartYear() + "</td>");
+                                    out.println("<td>" + semesters.get(i).getDepartment().getAbbreviation() + "</td>");
+                                    out.println("</tr>");
+                                }
+                    }
+            %>
         </table>
 
         <div class="w3-container">

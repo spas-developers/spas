@@ -66,7 +66,8 @@ CREATE table semesters (
     semester_number integer not null,
     fk_batches_batch_id integer not null,
     fk_departments_department_id integer not null,
-    PRIMARY KEY (semester_id),
+    KEY (semester_id),
+    PRIMARY KEY (semester_number,fk_batches_batch_id,fk_departments_department_id),
     FOREIGN KEY (fk_batches_batch_id) references batches(batch_id),
     FOREIGN KEY (fk_departments_department_id) references departments(department_id)
 );
@@ -92,11 +93,12 @@ insert into students(register_number,student_name,gender,is_hosteler,fk_batches_
 drop table students;
 
 CREATE table exams (
-	exam_id integer auto_increment,
+	exam_id integer auto_increment unique,
     fk_exam_types_exam_type_id integer not null,
     fk_subjects_subject_id integer not null,
     fk_semesters_semester_id integer not null,
-    PRIMARY KEY (exam_id),
+    KEY (exam_id),
+    PRIMARY KEY (fk_exam_types_exam_type_id,fk_subjects_subject_id,fk_semesters_semester_id),
     FOREIGN KEY (fk_exam_types_exam_type_id) references exam_types(exam_type_id),
     FOREIGN KEY (fk_subjects_subject_id) references subjects(subject_id),
     FOREIGN KEY (fk_semesters_semester_id) references semesters(semester_id)
@@ -105,19 +107,22 @@ CREATE table exams (
 insert into exams(fk_exam_types_exam_type_id,fk_subjects_subject_id,fk_semesters_semester_id) values(1,1,1);
 
 CREATE table exam_results (
-	exam_result_id integer auto_increment,
+	exam_result_id integer auto_increment unique,
     fk_exams_exam_id integer not null,
     fk_students_student_id integer not null,
     marks integer default 0,
     grade varchar(2) not null,
-    PRIMARY KEY (exam_result_id),
+    KEY (exam_result_id),
     FOREIGN KEY (fk_exams_exam_id) references exams(exam_id),
     FOREIGN KEY (fk_students_student_id) references students(student_id)
 );
 
 insert into exam_results(fk_exams_exam_id,fk_students_student_id,marks,grade) values(1,2,92,'S');
 
+drop table semesters;
+drop table exams;
 drop table exam_results;
+delete from exam_results;
 
 show tables;
 desc tables;

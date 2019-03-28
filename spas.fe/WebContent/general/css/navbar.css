@@ -60,7 +60,8 @@
 
 /* Style the "active" element to highlight the current page */
 .navbar a.active {
-    background-color: #2196f3;
+    /* background-color: #2196f3; */
+    background-color: orange;
     color: white;
 }
 

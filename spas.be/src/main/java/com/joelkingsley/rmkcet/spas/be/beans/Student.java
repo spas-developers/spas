@@ -3,6 +3,8 @@ package com.joelkingsley.rmkcet.spas.be.beans;
 import java.io.Serializable;
 import java.math.BigInteger;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Student implements Serializable {
 
 	/**
@@ -14,7 +16,10 @@ public class Student implements Serializable {
 	BigInteger registerNumber; 
 	String studentName;
 	String gender;
+	
+	@JsonProperty
 	boolean isHosteler;
+	
 	Batch batch;
 	Department department;
 	
@@ -54,10 +59,10 @@ public class Student implements Serializable {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public boolean isHosteler() {
+	public boolean getIsHosteler() {
 		return isHosteler;
 	}
-	public void setHosteler(boolean isHosteler) {
+	public void setIsHosteler(boolean isHosteler) {
 		this.isHosteler = isHosteler;
 	}
 	public Batch getBatch() {

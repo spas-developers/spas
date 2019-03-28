@@ -63,7 +63,7 @@ public class StudentsDAO {
 
 		Connection connection = DBUtils.getConnection();
 		
-		int isHosteler = addStudentRequest.isHosteler()?1:0;
+		int isHosteler = (addStudentRequest.isHosteler() == true) ? 1 : 0;
 		
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(DBQueries.ADD_STUDENT, Statement.RETURN_GENERATED_KEYS);

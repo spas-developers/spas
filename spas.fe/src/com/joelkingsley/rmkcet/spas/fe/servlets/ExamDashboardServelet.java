@@ -17,7 +17,7 @@ import com.joelkingsley.rmkcet.spas.fe.services.StudentsService;
 /**
  * Servlet implementation class ExamDashboard
  */
-@WebServlet("/ExamDashboard")
+@WebServlet("/examDashboard")
 public class ExamDashboardServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

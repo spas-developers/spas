@@ -30,15 +30,15 @@
     </header>
     <section class="navbar">
         <div class="courier bold">
-            <a href="" class="active menu-button">Dashboard</a>
+            <a href="" class="menu-button">Dashboard</a>
             <div class="dropdown-content dashboard-drop">
-                <a href="">Students</a>
-                <a href="">Exams</a>
-                <a href="">Exam Results</a>
+                <a href="/spas.fe/studentDashboard">Students</a>
+                <a href="/spas.fe/examDashboard">Exams</a>
+                <a href="/spas.fe/examResultDashboard">Exam Results</a>
             </div>
         </div>
         <div class="courier bold">
-            <a href="" class="menu-button">Manage</a>
+            <a href="" class="active menu-button">Manage</a>
             <div class="dropdown-content lt-drop">
                 <a href="/spas.fe/manageBatch">Batch</a>
                 <a href="/spas.fe/manageDepartment">Department</a>
@@ -70,21 +70,23 @@
                 <th>Marks/Grade</th>
             </tr>
             <% 
-                ArrayList<ExamResult> examResults = (ArrayList<ExamResult>) request.getAttribute("examResults");
-                    for (int i=0;i < examResults.size();i++) {
-                        int batchStartYear = examResults.get(i).getExam().getSemester().getBatch().getBatchStartYear();
-                        int batchEndYear = batchStartYear + 4;
-                        out.println("<tr>");
-                        out.println("<td>" + examResults.get(i).getExamResultID() + "</td>");
-                        out.println("<td>" + examResults.get(i).getExam().getExamID() + "</td>");
-                        out.println("<td>" + examResults.get(i).getExam().getExamType().getExamTypeName() + "</td>");
-                        out.println("<td>" + batchStartYear + "-" + batchEndYear + "</td>");
-                        out.println("<td>" + examResults.get(i).getExam().getSemester().getSemesterNumber() + "</td>");
-                        out.println("<td>" + examResults.get(i).getStudent().getStudentName() + "</td>");
-                        out.println("<td>" + examResults.get(i).getStudent().getRegisterNumber() + "</td>");
-                        out.println("<td>" + examResults.get(i).getMarks() + "/" + examResults.get(i).getGrade() + "</td>");
-                        out.println("</tr>");
-                    }
+            	if (request.getAttribute("examResults") != null){
+	                ArrayList<ExamResult> examResults = (ArrayList<ExamResult>) request.getAttribute("examResults");
+	                    for (int i=0;i < examResults.size();i++) {
+	                        int batchStartYear = examResults.get(i).getExam().getSemester().getBatch().getBatchStartYear();
+	                        int batchEndYear = batchStartYear + 4;
+	                        out.println("<tr>");
+	                        out.println("<td>" + examResults.get(i).getExamResultID() + "</td>");
+	                        out.println("<td>" + examResults.get(i).getExam().getExamID() + "</td>");
+	                        out.println("<td>" + examResults.get(i).getExam().getExamType().getExamTypeName() + "</td>");
+	                        out.println("<td>" + batchStartYear + "-" + batchEndYear + "</td>");
+	                        out.println("<td>" + examResults.get(i).getExam().getSemester().getSemesterNumber() + "</td>");
+	                        out.println("<td>" + examResults.get(i).getStudent().getStudentName() + "</td>");
+	                        out.println("<td>" + examResults.get(i).getStudent().getRegisterNumber() + "</td>");
+	                        out.println("<td>" + examResults.get(i).getMarks() + "/" + examResults.get(i).getGrade() + "</td>");
+	                        out.println("</tr>");
+	                    }
+            	}
             %>
         </table>
         <div class="w3-container">
@@ -103,19 +105,21 @@
                                 </div>
                                 <table class="form-table">
                                     <tr>
-                                        <td><span>Ex
+                                        <td><span>Exam:
                                         <td>
                                             <select name="exam">
                                                 <% 
-                                                    ArrayList<Exam> exams = (ArrayList<Exam>) request.getAttribute("exams");
-                                                    for(int i=0 ; i < exams.size() ; i++) {
-                                                        out.print("<option>");
-                                                        out.print(exams.get(i).getExamID()+":"+ exams.get(i).getExamType().getExamTypeName());
-                                                        out.print("(" + exams.get(i).getSubject().getSubjectCode()+")");
-                                                        out.print("("+"Semester "+exams.get(i).getSemester().getSemesterNumber()+")");
-                                                        out.print("("+exams.get(i).getSemester().getBatch().getBatchStartYear()+")");
-                                                        out.print("("+exams.get(i).getSemester().getDepartment().getAbbreviation()+")");
-                                                        out.print("</option>");
+                                                    if (request.getAttribute("exams") != null) {
+                                                        ArrayList<Exam> exams = (ArrayList<Exam>) request.getAttribute("exams");
+                                                        for(int i=0 ; i < exams.size() ; i++) {
+                                                            out.print("<option>");
+                                                            out.print(exams.get(i).getExamID()+":"+ exams.get(i).getExamType().getExamTypeName());
+                                                            out.print("(" + exams.get(i).getSubject().getSubjectCode()+")");
+                                                            out.print("("+"Semester "+exams.get(i).getSemester().getSemesterNumber()+")");
+                                                            out.print("("+exams.get(i).getSemester().getBatch().getBatchStartYear()+")");
+                                                            out.print("("+exams.get(i).getSemester().getDepartment().getAbbreviation()+")");
+                                                            out.print("</option>");
+                                                        }
                                                     }
                                                  %>
                                             </select>

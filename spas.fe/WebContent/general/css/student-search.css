@@ -44,3 +44,8 @@ table{
     width:100%
 
 }
+
+.centered-container {
+    display: flex;
+    align-items: center;
+}

@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.joelkingsley.rmkcet.spas.fe.beans.ExamResult;
+import com.joelkingsley.rmkcet.spas.fe.beans.ExamType;
+import com.joelkingsley.rmkcet.spas.fe.beans.Subject;
 import com.joelkingsley.rmkcet.spas.fe.services.ExamResultsService;
+import com.joelkingsley.rmkcet.spas.fe.services.ExamTypesService;
+import com.joelkingsley.rmkcet.spas.fe.services.SubjectsService;
 
 /**
  * Servlet implementation class StudentDetailServlet
@@ -31,6 +35,7 @@ public class StudentDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.getRequestDispatcher("/general/pages/student-search.html").forward(request, response);
 	}
 
@@ -42,6 +47,15 @@ public class StudentDetailServlet extends HttpServlet {
 		ExamResultsService examResultsService = new ExamResultsService();
 		ArrayList<ExamResult> examResults = examResultsService.getAllExamResultsOfRegisterNumber(registerNumber);
 		request.setAttribute("examResults", examResults);
+		
+		ExamTypesService examTypesService = new ExamTypesService();
+		ArrayList<ExamType> examTypes = examTypesService.getAllExamTypes();
+		request.setAttribute("examTypes", examTypes);
+		
+		SubjectsService subjectsService = new SubjectsService();
+		ArrayList<Subject> subjects = subjectsService.getAllSubjects();
+		request.setAttribute("subjects", subjects);
+		
 		request.getRequestDispatcher("/general/pages/student-detail.jsp").forward(request, response);
 		// doGet(request, response);
 	}
