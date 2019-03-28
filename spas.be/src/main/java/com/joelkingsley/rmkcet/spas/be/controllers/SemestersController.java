@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.joelkingsley.rmkcet.spas.be.beans.Semester;
+import com.joelkingsley.rmkcet.spas.be.beans.requests.AddSemesterRequest;
 import com.joelkingsley.rmkcet.spas.be.constants.ErrorConstants;
 import com.joelkingsley.rmkcet.spas.be.delegates.SemestersDelegate;
 import com.joelkingsley.rmkcet.spas.be.utils.AppError;
@@ -39,6 +42,20 @@ SemestersDelegate semestersDelegate;
 			appError.getException().printStackTrace();
 			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 			return responseEntity;
+		}
+	}
+	
+	@PostMapping("/semesters")
+	ResponseEntity<?> addSemester(@RequestBody AddSemesterRequest addSemesterRequest) {
+		 try { 
+			 AddSemesterRequest addedSemester = semestersDelegate.addSemester(addSemesterRequest); 
+			 ResponseEntity<AddSemesterRequest> responseEntity = new ResponseEntity<AddSemesterRequest>(addedSemester, HttpStatus.OK); 
+			 return responseEntity;
+
+		} catch (AppError appError) { 
+			appError.getException().printStackTrace(); 
+			ResponseEntity<String> responseEntity = new ResponseEntity<String>(appError.getErrorMessage(), HttpStatus.INTERNAL_SERVER_ERROR); 
+			return responseEntity; 
 		}
 	}
 	

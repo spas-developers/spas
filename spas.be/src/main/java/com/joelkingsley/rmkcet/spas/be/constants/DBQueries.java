@@ -161,5 +161,6 @@ public class DBQueries {
 	public static final String ADD_EXAMTYPE = "INSERT INTO examTypes(exam_Type_name, abbreviation) values(?,?)";
 	public static final String ADD_STUDENT = "INSERT INTO students(student_id, register_number, student_name, gender, is_hosteler, fk_batches_batch_id, fk_departments_department_id) values(?,?,?,?,?,?,?) ";
 	public static final String ADD_SUBJECT = "INSERT INTO subjects(subject_code, subject_name, credit) values(?,?,?)";
+	public static final String ADD_SEMESTER = "INSERT INTO semesters(semester_number, fk_batches_batch_id, fk_departments_department_id) values(?,?,?)";
 
 }
